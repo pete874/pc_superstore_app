@@ -16,5 +16,10 @@ namespace pc_superstore_app
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
