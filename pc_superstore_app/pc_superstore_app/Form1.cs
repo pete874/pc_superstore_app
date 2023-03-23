@@ -10,16 +10,23 @@ using System.Windows.Forms;
 
 namespace pc_superstore_app
 {
-    public partial class Form1 : Form
+    public partial class Sisaankirjautuminen_form : Form
     {
-        public Form1()
+        public Sisaankirjautuminen_form()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void RekisteroidyLB_Click(object sender, EventArgs e)
         {
+            Rekisteroidy_form rekisteroidy = new Rekisteroidy_form();
+            rekisteroidy.Show();
 
+        }
+
+        private void KirjauduBT_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
