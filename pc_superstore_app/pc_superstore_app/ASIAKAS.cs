@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,13 +16,16 @@ namespace pc_superstore_app
 
         public DataTable HaeAsiakkaat()
         {
-            MySqlCommand haeKaikki = new MySqlCommand("SELECT kayttajatunnus, salasana FROM kayttajat", yhteys.otaYhteys());
+            MySqlCommand haeKaikki = new MySqlCommand("SELECT kayttajatunnus, salasana, oikeudet FROM kayttajat", yhteys.otaYhteys());
+
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable taulukko = new DataTable();
 
             adapter.SelectCommand = haeKaikki;
             adapter.Fill(taulukko);
+
+            
 
             return taulukko;
 

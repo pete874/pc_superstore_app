@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,69 +30,50 @@ namespace pc_superstore_app
 
         private void KirjauduBT_Click(object sender, EventArgs e)
         {
+            // Luodaan muuttujat, joihin tallennetaan käyttäjän loginsyöttö
+            String kayttajatunnus = KayttajatunnusTB.Text;
+            String salasana = SalasanaTB.Text;
+
+            // Valitaan tietokannasta oikeudet-sarake tarkasteltavaksi ja käytetään käyttäjätunnusta / salasanaa määrittelyyn
+            MySqlCommand kayttajakomento = new MySqlCommand("SELECT oikeudet FROM kayttajat WHERE kayttajatunnus = @ktu AND salasana = @sal", kirjaudu.otaYhteys());
             
-            MySqlCommand asiakaskomento = new MySqlCommand("SELECT kayttajatunnus, salasana, oikeudet FROM kayttajat WHERE kayttajatunnus = @ktu AND salasana = @sal AND oikeudet = 2");
             
-            asiakaskomento.Parameters.Add("@ktu", MySqlDbType.VarChar).Value = KayttajatunnusTB.Text;
-            asiakaskomento.Parameters.Add("@sal", MySqlDbType.VarChar).Value = SalasanaTB.Text;
-           
-
-
-            asiakaskomento.Connection = kirjaudu.otaYhteys();
-            
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            DataTable taulukko = new DataTable();
-
-            adapter.SelectCommand = asiakaskomento;
-            adapter.Fill(taulukko);
+            kayttajakomento.Parameters.AddWithValue("@ktu", kayttajatunnus);
+            kayttajakomento.Parameters.AddWithValue("@sal", salasana);
+            kayttajakomento.Connection = kirjaudu.otaYhteys();
 
             kirjaudu.avaaYhteys();
-
-            if (taulukko.Rows.Count > 0 ) 
+            // Luodaan objekti joka palauttaa kyselyn ensimmäisen rivin ensimmäisen sarakkeen(tässä tapauksessa oikeudet)
+            object result = kayttajakomento.ExecuteScalar();
+            kirjaudu.suljeYhteys();
+ 
+            // Tarkistetaan if- lauseilla onko kirjautujan oikeudet 1 - työntekijä, vai 2 - asiakas.  
+            if (result != null)
             {
-           
-                MessageBox.Show("Tervetuloa asiakas.");
-                // Avataan asiakkaille tarkoitettu etusivu
+                int oikeudet = Convert.ToInt32(result);
+                if (oikeudet == 1) // työntekijä
+                {
+                    // Ohjataan työntekijöiden sivulle
+                    MessageBox.Show("Tervetuloa työntekijä!");
+                    Tyontekijasivu_form tyontekijasivu = new Tyontekijasivu_form();
+                    tyontekijasivu.Show();
+                    this.Hide();
+                }
+                else if (oikeudet == 2) // asiakas
+                {
+                    // Ohjataan asiakassivulle
+                    MessageBox.Show("Tervetuloa asiakas!");
+                    Asiakassivu_form asiakassivu = new Asiakassivu_form();
+                    asiakassivu.Show();
+                    this.Hide();
+                }
             }
             else
             {
-                MessageBox.Show("Väärä salasana tai käyttäjätunnus.", "Virhe!");
+                MessageBox.Show("Väärä käyttäjätunnus tai salasana!");
             }
 
-
-            /*MySqlCommand tyontekijakomento = new MySqlCommand("SELECT kayttajatunnus, salasana FROM kayttajat WHERE kayttajatunnus = @ktu AND salasana = @sal AND oikeudet = 1");
-
-            tyontekijakomento.Parameters.Add("@ktu", MySqlDbType.VarChar).Value = KayttajatunnusTB.Text;
-            tyontekijakomento.Parameters.Add("@sal", MySqlDbType.VarChar).Value = SalasanaTB.Text;
-
-            tyontekijakomento.Connection = kirjaudu.otaYhteys();
-
-
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter();
-
-            DataTable taulukko2 = new DataTable();
-
-            adapter2.SelectCommand = tyontekijakomento;
-            adapter2.Fill(taulukko2);
-
-            kirjaudu.avaaYhteys();
-
-            if (taulukko.Rows.Count > 0)
-            {
-                MessageBox.Show("Tervetuloa työntekijä.");
-                // Avataan työntekijöille tarkoitettu etusivu
-            }
-            else
-            {
-                MessageBox.Show("Väärä salasana tai käyttäjätunnus.", "Virhe!");
-            }
-
-
-
-            //asiakas.HaeAsiakkaat();
-            //MessageBox.Show("Asiakkaiden haku onnistui");*/
+            
         }
     }
 }

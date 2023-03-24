@@ -36,10 +36,6 @@
             this.KirjauduBT = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.RekisteroidyLB = new System.Windows.Forms.Label();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.fileSystemWatcher2 = new System.IO.FileSystemWatcher();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,16 +113,6 @@
             this.RekisteroidyLB.Text = "Rekisteröidy";
             this.RekisteroidyLB.Click += new System.EventHandler(this.RekisteroidyLB_Click);
             // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // fileSystemWatcher2
-            // 
-            this.fileSystemWatcher2.EnableRaisingEvents = true;
-            this.fileSystemWatcher2.SynchronizingObject = this;
-            // 
             // Sisaankirjautuminen_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,8 +128,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Sisaankirjautuminen_form";
             this.Text = "Sisäänkirjautuminen";
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,8 +143,6 @@
         private System.Windows.Forms.Button KirjauduBT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label RekisteroidyLB;
-        private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.IO.FileSystemWatcher fileSystemWatcher2;
     }
 }
 

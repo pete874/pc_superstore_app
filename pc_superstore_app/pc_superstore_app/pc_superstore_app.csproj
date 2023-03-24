@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ASIAKAS.cs" />
+    <Compile Include="Asiakassivu_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asiakassivu_form.Designer.cs">
+      <DependentUpon>Asiakassivu_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,7 +68,16 @@
     <Compile Include="Rekisteroidy_form.Designer.cs">
       <DependentUpon>Rekisteroidy_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tyontekijasivu_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tyontekijasivu_form.Designer.cs">
+      <DependentUpon>Tyontekijasivu_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="YHDISTA.cs" />
+    <EmbeddedResource Include="Asiakassivu_form.resx">
+      <DependentUpon>Asiakassivu_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="Rekisteroidy_form.resx">
       <DependentUpon>Rekisteroidy_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tyontekijasivu_form.resx">
+      <DependentUpon>Tyontekijasivu_form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
