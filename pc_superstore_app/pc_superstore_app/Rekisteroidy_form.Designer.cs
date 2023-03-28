@@ -105,6 +105,7 @@
             this.RekisteroidyBT.TabIndex = 11;
             this.RekisteroidyBT.Text = "Rekisteröidy";
             this.RekisteroidyBT.UseVisualStyleBackColor = true;
+            this.RekisteroidyBT.Click += new System.EventHandler(this.RekisteroidyBT_Click);
             // 
             // PeruutaBT
             // 
@@ -131,6 +132,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Rekisteroidy_form";
             this.Text = "Rekisteröidy";
+            this.Load += new System.EventHandler(this.Rekisteroidy_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

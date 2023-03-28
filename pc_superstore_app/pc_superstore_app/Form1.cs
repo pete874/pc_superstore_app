@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,13 +43,13 @@ namespace pc_superstore_app
 
             kirjaudu.avaaYhteys();
             // Luodaan objekti joka palauttaa kyselyn ensimmäisen rivin ensimmäisen sarakkeen(tässä tapauksessa oikeudet)
-            object result = kayttajakomento.ExecuteScalar();
+            int result = Convert.ToInt32(kayttajakomento.ExecuteScalar());
             kirjaudu.suljeYhteys();
  
             // Tarkistetaan if- lauseilla onko kirjautujan oikeudet 1 - työntekijä, vai 2 - asiakas.  
-            if (result != null)
-            {
-                int oikeudet = Convert.ToInt32(result);
+            
+            
+                int oikeudet = result;
                 if (oikeudet == 1) // työntekijä
                 {
                     // Ohjataan työntekijöiden sivulle
@@ -67,11 +66,10 @@ namespace pc_superstore_app
                     asiakassivu.Show();
                     this.Hide();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Väärä käyttäjätunnus tai salasana!");
-            }
+                else
+                {
+                   MessageBox.Show("Väärä käyttäjätunnus tai salasana!");
+                }
 
             
         }

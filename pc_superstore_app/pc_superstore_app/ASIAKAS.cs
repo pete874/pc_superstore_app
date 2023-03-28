@@ -1,5 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Relational;
+﻿using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,5 +30,29 @@ namespace pc_superstore_app
             return taulukko;
 
         }
+
+        public bool LisaaAsiakas(String kayttajatunnus, String salasana, String email)
+        {
+
+            MySqlCommand kayttajakomento = new MySqlCommand("INSERT INTO kayttajat (kayttajatunnus, salasana, email, oikeudet) VALUES (@ktu, @sal, @ema, 2)", yhteys.otaYhteys()); 
+
+            kayttajakomento.Parameters.AddWithValue("@ktu", kayttajatunnus);
+            kayttajakomento.Parameters.AddWithValue("@sal", salasana);
+            kayttajakomento.Parameters.AddWithValue("@ema", email);
+
+            yhteys.avaaYhteys();
+
+            if (kayttajakomento.ExecuteNonQuery() == 1)
+            {
+                yhteys.suljeYhteys();
+                return true;
+            }
+            else
+            {
+                yhteys.suljeYhteys();
+                return false;
+            }
+        }
+    
     }
 }

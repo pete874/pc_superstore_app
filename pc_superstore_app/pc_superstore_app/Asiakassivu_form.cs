@@ -19,12 +19,48 @@ namespace pc_superstore_app
 
         private void Asiakassivu_form_Load(object sender, EventArgs e)
         {
-
+            EtusivuAsiakasPN.Visible = true;
+            TietokoneetPN.Visible = false;
+            KomponentitPN.Visible = false;
+            OheistuotteetPN.Visible = false;
         }
 
         private void Asiakassivu_form_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void EtusivuLB_Click(object sender, EventArgs e)
+        {
+            EtusivuAsiakasPN.Visible = true;
+            TietokoneetPN.Visible = false;
+            KomponentitPN.Visible = false;
+            OheistuotteetPN.Visible = false;
+        }
+
+
+        private void TietokoneetBT_Click(object sender, EventArgs e)
+        {
+            EtusivuAsiakasPN.Visible = false;
+            TietokoneetPN.Visible = true;
+            KomponentitPN.Visible = false;
+            OheistuotteetPN.Visible = false;
+        }
+
+        private void KomponentitBT_Click(object sender, EventArgs e)
+        {
+            EtusivuAsiakasPN.Visible = false;
+            TietokoneetPN.Visible = false;
+            KomponentitPN.Visible = true;
+            OheistuotteetPN.Visible = false;
+        }
+
+        private void OheistuotteetBT_Click(object sender, EventArgs e)
+        {
+            EtusivuAsiakasPN.Visible = false;
+            TietokoneetPN.Visible = false;
+            KomponentitPN.Visible = false;
+            OheistuotteetPN.Visible = true;
         }
     }
 }
