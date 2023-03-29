@@ -26,5 +26,27 @@ namespace pc_superstore_app
         {
             Application.Exit();
         }
+
+        private void AsiakkaatBT_Click(object sender, EventArgs e)
+        {
+            TyontekijaEtusivuPN.Visible = true;
+            TilauksetPN.Visible = false;
+            AsiakkaatPN.Visible = true;
+            VarastoPN.Visible = false;
+        }
+
+        private void TilauksetBT_Click(object sender, EventArgs e)
+        {
+            TilauksetPN.Visible = true;
+            AsiakkaatPN.Visible = false;
+            VarastoPN.Visible = false;
+        }
+
+        private void VarastoBT_Click(object sender, EventArgs e)
+        {
+            TilauksetPN.Visible = false;
+            AsiakkaatPN.Visible = false;
+            VarastoPN.Visible = true;
+        }
     }
 }
