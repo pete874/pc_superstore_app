@@ -1,11 +1,11 @@
-﻿using Microsoft.Win32;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace pc_superstore_app
 {
@@ -52,6 +52,39 @@ namespace pc_superstore_app
                 yhteys.suljeYhteys();
                 return false;
             }
+        }
+
+        public int KirjautumisenTarkastus(String kayttajatunnus, String salasana)
+        {
+            MySqlCommand kayttajakomento = new MySqlCommand("SELECT oikeudet FROM kayttajat WHERE kayttajatunnus = @ktu AND salasana = @sal", yhteys.otaYhteys());
+
+
+            kayttajakomento.Parameters.AddWithValue("@ktu", kayttajatunnus);
+            kayttajakomento.Parameters.AddWithValue("@sal", salasana);
+            kayttajakomento.Connection = yhteys.otaYhteys();
+
+            yhteys.avaaYhteys();
+            int result = Convert.ToInt32(kayttajakomento.ExecuteScalar());                       
+            int oikeudet = result;
+            yhteys.suljeYhteys();
+
+            if (oikeudet == 1) // työntekijä
+            {
+                // Ohjataan työntekijöiden sivulle
+                return 1;
+                
+            }
+            else if(oikeudet == 2)
+            {
+                // Ohjataan asiakassivulle
+                return 2;
+            }
+            else
+            {
+                
+                return 3;
+            }
+            
         }
     
     }
