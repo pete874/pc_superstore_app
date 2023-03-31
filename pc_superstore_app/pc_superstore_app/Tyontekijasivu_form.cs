@@ -12,6 +12,7 @@ namespace pc_superstore_app
 {
     public partial class Tyontekijasivu_form : Form
     {
+        TYONTEKIJA tyontekija = new TYONTEKIJA();
         public Tyontekijasivu_form()
         {
             InitializeComponent();
@@ -19,7 +20,10 @@ namespace pc_superstore_app
 
         private void Tyontekijasivu_form_Load(object sender, EventArgs e)
         {
+            AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
 
+            OikeudetCB.ValueMember = "oikeudet";
+            OikeudetCB.SelectedIndex = 0;
         }
 
         private void Tyontekijasivu_form_FormClosed(object sender, FormClosedEventArgs e)
@@ -47,6 +51,100 @@ namespace pc_superstore_app
             TilauksetPN.Visible = false;
             AsiakkaatPN.Visible = false;
             VarastoPN.Visible = true;
+        }
+
+        private void AsiakkaatDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            OikeudetCB.Text = AsiakkaatDG.CurrentRow.Cells[3].Value.ToString();
+            KayttajatunnusTyontekijaTB.Text = AsiakkaatDG.CurrentRow.Cells[0].Value.ToString();
+            SalasanaTyontekijaTB.Text = AsiakkaatDG.CurrentRow.Cells[1].Value.ToString();
+            EmailTyontekijaTB.Text = AsiakkaatDG.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void LisaaKayttajaBT_Click(object sender, EventArgs e)
+        {
+            int oikeudet = Convert.ToInt32(OikeudetCB.Text);
+            String kayttajatunnus = KayttajatunnusTyontekijaTB.Text;
+            String salasana = SalasanaTyontekijaTB.Text;
+            String email = EmailTyontekijaTB.Text;
+
+            if (kayttajatunnus.Trim().Equals("") || salasana.Trim().Equals("") || email.Trim().Equals(""))
+            {
+                MessageBox.Show("Täytä vaaditut kentät!");
+            }
+            else
+            {
+                
+                //Try catch lisätty, jottei tyhjistä kentistä ohjelma kaadu
+                try
+                {
+                    if (tyontekija.LisaaTyontekijaAsiakas(oikeudet, kayttajatunnus, salasana, email))
+                    {
+                        MessageBox.Show("Käyttäjä lisätty", "Käyttäjän lisäys", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Käyttäjän lisäys epäonnistui!", "Käyttäjän lisäys", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Virhe! Käyttäjätunnus on jo käytössä.", "Käyttäjän lisäys", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
+        }
+
+        private void MuokkaaKayttajaBT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int oikeudet = Convert.ToInt32(OikeudetCB.Text);
+                String kayttajatunnus = KayttajatunnusTyontekijaTB.Text;
+                String salasana = SalasanaTyontekijaTB.Text;
+                String email = EmailTyontekijaTB.Text;
+
+                if (tyontekija.MuokkaaTyontekijaAsiakas(oikeudet, kayttajatunnus, salasana, email))
+                {
+                    MessageBox.Show("Käyttäjän muokkaus onnistui", "Käyttäjän muokkaus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Käyttäjän muokkaus epäonnistui!", "Käyttäjän muokkaus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Täytä vaaditut kentät!", "Käyttäjän muokkaus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
+        }
+
+        private void PoistaKayttajaBT_Click(object sender, EventArgs e)
+        {
+            //Try catch lisätty, jottei tyhjistä kentistä ohjelma kaadu
+            try
+            {
+                String kayttajatunnus = KayttajatunnusTyontekijaTB.Text;
+                if (tyontekija.PoistaKayttaja(kayttajatunnus))
+                {
+                    MessageBox.Show("Käyttäjä poistettu", "Käyttäjän poisto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Käyttäjän poistaminen epäonnistui!", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Syötä poistettavan käyttäjän käyttäjätunnus", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
