@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace pc_superstore_app
     public partial class Tyontekijasivu_form : Form
     {
         TYONTEKIJA tyontekija = new TYONTEKIJA();
+        YHDISTA yhteys = new YHDISTA();
         public Tyontekijasivu_form()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace pc_superstore_app
         private void Tyontekijasivu_form_Load(object sender, EventArgs e)
         {
             AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
+            TilauksetDG.DataSource = tyontekija.HaeTilaukset();
+            VarastoDG.DataSource = tyontekija.HaeVarasto();
 
             OikeudetCB.ValueMember = "oikeudet";
             OikeudetCB.SelectedIndex = 0;
@@ -145,6 +149,23 @@ namespace pc_superstore_app
             {
                 MessageBox.Show("Syötä poistettavan käyttäjän käyttäjätunnus", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        private void EtsiTB_TextChanged(object sender, EventArgs e)
+        {
+            DataTable varastoTable = tyontekija.HaeVarasto();
+
+            VarastoDG.DataSource = varastoTable;
+
+            String etsintaTeksti = EtsiTB.Text;
+
+            DataView view = new DataView(varastoTable);
+
+            view.RowFilter = string.Format("tuote LIKE '%{0}%' OR tuotekategoria LIKE '%{0}%' OR tuotetiedot LIKE '%{0}%'", etsintaTeksti);
+
+            // Set the DataView as the DataSource of the DataGridView control
+            VarastoDG.DataSource = view;
         }
     }
 }

@@ -139,5 +139,35 @@ namespace pc_superstore_app
                 return false;
             }
         }
+
+        public DataTable HaeTilaukset()
+        {
+            // tehdään uusi mysqlcommand. Sulkeiden sisään tulee itse komento ja otaYhteys funktio. MySqlCommand(String, MySqlConnection)
+            MySqlCommand haeKaikki = new MySqlCommand("SELECT tilausnro, etunimi, sukunimi, puhelin, sähköposti, katuosoite, postinumero, tilaus FROM tilaukset", yhteys.otaYhteys());
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable taulu = new DataTable();
+
+            adapter.SelectCommand = haeKaikki;
+            adapter.Fill(taulu);
+
+            return taulu;
+        }
+
+        public DataTable HaeVarasto()
+        {
+            // tehdään uusi mysqlcommand. Sulkeiden sisään tulee itse komento ja otaYhteys funktio. MySqlCommand(String, MySqlConnection)
+            MySqlCommand haeKaikki = new MySqlCommand("SELECT tuote, tuotekategoria, saldo, hinta, tuotetiedot FROM komponentit UNION ALL " +
+                                                      "SELECT tuote, tuotekategoria, saldo, hinta, tuotetiedot FROM oheistuotteet UNION ALL " +
+                                                      "SELECT tuote, tuotekategoria, saldo, hinta, tuotetiedot FROM tietokoneet;", yhteys.otaYhteys());
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable taulu = new DataTable();
+
+            adapter.SelectCommand = haeKaikki;
+            adapter.Fill(taulu);
+
+            return taulu;
+        }
     }
 }
