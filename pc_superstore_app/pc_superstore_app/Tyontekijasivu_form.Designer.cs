@@ -55,10 +55,41 @@
             this.label11 = new System.Windows.Forms.Label();
             this.EtsiTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.VarastoDG = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.AlaPN = new System.Windows.Forms.Panel();
+            this.TuotekategoriaTB = new System.Windows.Forms.TextBox();
+            this.HintaTB = new System.Windows.Forms.TextBox();
+            this.VarastosaldoTB = new System.Windows.Forms.TextBox();
+            this.TuoteTB = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.asfgfewgwer = new System.Windows.Forms.Label();
+            this.asdasfa = new System.Windows.Forms.Label();
+            this.TuotetiedotRTB = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.PoistaTuoteBT = new System.Windows.Forms.Button();
+            this.MuokkaaTuoteBT = new System.Windows.Forms.Button();
+            this.LisaaTuoteBT = new System.Windows.Forms.Button();
+            this.PaaKategoriaCB = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TilausnumeroTB = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.TilausPnumTB = new System.Windows.Forms.TextBox();
+            this.TilausKatuosoiteTB = new System.Windows.Forms.TextBox();
+            this.TilausEmailTB = new System.Windows.Forms.TextBox();
+            this.TilausPuhTB = new System.Windows.Forms.TextBox();
+            this.TilausSukunimiTB = new System.Windows.Forms.TextBox();
+            this.TilausEtunimiTB = new System.Windows.Forms.TextBox();
+            this.TilatutTuotteetRTB = new System.Windows.Forms.RichTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.PoistaTilausBT = new System.Windows.Forms.Button();
+            this.MuokkaaTilausBT = new System.Windows.Forms.Button();
             this.TyontekijaEtusivuPN.SuspendLayout();
             this.AsiakkaatPN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AsiakkaatDG)).BeginInit();
@@ -273,6 +304,24 @@
             // 
             // TilauksetPN
             // 
+            this.TilauksetPN.Controls.Add(this.MuokkaaTilausBT);
+            this.TilauksetPN.Controls.Add(this.PoistaTilausBT);
+            this.TilauksetPN.Controls.Add(this.label22);
+            this.TilauksetPN.Controls.Add(this.label21);
+            this.TilauksetPN.Controls.Add(this.label20);
+            this.TilauksetPN.Controls.Add(this.label19);
+            this.TilauksetPN.Controls.Add(this.label18);
+            this.TilauksetPN.Controls.Add(this.label17);
+            this.TilauksetPN.Controls.Add(this.label16);
+            this.TilauksetPN.Controls.Add(this.TilatutTuotteetRTB);
+            this.TilauksetPN.Controls.Add(this.TilausEtunimiTB);
+            this.TilauksetPN.Controls.Add(this.TilausSukunimiTB);
+            this.TilauksetPN.Controls.Add(this.TilausPuhTB);
+            this.TilauksetPN.Controls.Add(this.TilausEmailTB);
+            this.TilauksetPN.Controls.Add(this.TilausKatuosoiteTB);
+            this.TilauksetPN.Controls.Add(this.TilausPnumTB);
+            this.TilauksetPN.Controls.Add(this.label15);
+            this.TilauksetPN.Controls.Add(this.TilausnumeroTB);
             this.TilauksetPN.Controls.Add(this.TilauksetDG);
             this.TilauksetPN.Controls.Add(this.label4);
             this.TilauksetPN.Location = new System.Drawing.Point(0, 103);
@@ -288,11 +337,12 @@
             this.TilauksetDG.Name = "TilauksetDG";
             this.TilauksetDG.Size = new System.Drawing.Size(686, 494);
             this.TilauksetDG.TabIndex = 1;
+            this.TilauksetDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TilauksetDG_CellClick);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 20);
+            this.label4.Location = new System.Drawing.Point(167, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 0;
@@ -300,10 +350,23 @@
             // 
             // VarastoPN
             // 
+            this.VarastoPN.Controls.Add(this.label14);
+            this.VarastoPN.Controls.Add(this.PaaKategoriaCB);
+            this.VarastoPN.Controls.Add(this.LisaaTuoteBT);
+            this.VarastoPN.Controls.Add(this.MuokkaaTuoteBT);
+            this.VarastoPN.Controls.Add(this.PoistaTuoteBT);
+            this.VarastoPN.Controls.Add(this.label13);
+            this.VarastoPN.Controls.Add(this.TuotetiedotRTB);
+            this.VarastoPN.Controls.Add(this.asdasfa);
+            this.VarastoPN.Controls.Add(this.asfgfewgwer);
+            this.VarastoPN.Controls.Add(this.label12);
+            this.VarastoPN.Controls.Add(this.TuoteTB);
+            this.VarastoPN.Controls.Add(this.VarastosaldoTB);
+            this.VarastoPN.Controls.Add(this.HintaTB);
+            this.VarastoPN.Controls.Add(this.TuotekategoriaTB);
             this.VarastoPN.Controls.Add(this.label11);
             this.VarastoPN.Controls.Add(this.EtsiTB);
             this.VarastoPN.Controls.Add(this.label10);
-            this.VarastoPN.Controls.Add(this.comboBox1);
             this.VarastoPN.Controls.Add(this.VarastoDG);
             this.VarastoPN.Controls.Add(this.label5);
             this.VarastoPN.Location = new System.Drawing.Point(0, 103);
@@ -315,7 +378,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(29, 48);
+            this.label11.Location = new System.Drawing.Point(116, 25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(24, 13);
             this.label11.TabIndex = 5;
@@ -323,7 +386,7 @@
             // 
             // EtsiTB
             // 
-            this.EtsiTB.Location = new System.Drawing.Point(169, 41);
+            this.EtsiTB.Location = new System.Drawing.Point(146, 22);
             this.EtsiTB.Name = "EtsiTB";
             this.EtsiTB.Size = new System.Drawing.Size(192, 20);
             this.EtsiTB.TabIndex = 4;
@@ -332,19 +395,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(29, 70);
+            this.label10.Location = new System.Drawing.Point(3, 89);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(79, 13);
             this.label10.TabIndex = 3;
             this.label10.Text = "Tuotekategoria";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(169, 67);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(192, 21);
-            this.comboBox1.TabIndex = 2;
             // 
             // VarastoDG
             // 
@@ -353,11 +408,12 @@
             this.VarastoDG.Name = "VarastoDG";
             this.VarastoDG.Size = new System.Drawing.Size(661, 500);
             this.VarastoDG.TabIndex = 1;
+            this.VarastoDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VarastoDG_CellClick);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(200, 19);
+            this.label5.Location = new System.Drawing.Point(174, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 0;
@@ -371,13 +427,285 @@
             this.AlaPN.Size = new System.Drawing.Size(1133, 65);
             this.AlaPN.TabIndex = 4;
             // 
+            // TuotekategoriaTB
+            // 
+            this.TuotekategoriaTB.Location = new System.Drawing.Point(95, 86);
+            this.TuotekategoriaTB.Name = "TuotekategoriaTB";
+            this.TuotekategoriaTB.Size = new System.Drawing.Size(362, 20);
+            this.TuotekategoriaTB.TabIndex = 6;
+            // 
+            // HintaTB
+            // 
+            this.HintaTB.Location = new System.Drawing.Point(95, 187);
+            this.HintaTB.Name = "HintaTB";
+            this.HintaTB.Size = new System.Drawing.Size(362, 20);
+            this.HintaTB.TabIndex = 7;
+            // 
+            // VarastosaldoTB
+            // 
+            this.VarastosaldoTB.Location = new System.Drawing.Point(95, 154);
+            this.VarastosaldoTB.Name = "VarastosaldoTB";
+            this.VarastosaldoTB.Size = new System.Drawing.Size(362, 20);
+            this.VarastosaldoTB.TabIndex = 8;
+            // 
+            // TuoteTB
+            // 
+            this.TuoteTB.Location = new System.Drawing.Point(95, 120);
+            this.TuoteTB.Name = "TuoteTB";
+            this.TuoteTB.Size = new System.Drawing.Size(362, 20);
+            this.TuoteTB.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Tuote";
+            // 
+            // asfgfewgwer
+            // 
+            this.asfgfewgwer.AutoSize = true;
+            this.asfgfewgwer.Location = new System.Drawing.Point(3, 190);
+            this.asfgfewgwer.Name = "asfgfewgwer";
+            this.asfgfewgwer.Size = new System.Drawing.Size(32, 13);
+            this.asfgfewgwer.TabIndex = 11;
+            this.asfgfewgwer.Text = "Hinta";
+            // 
+            // asdasfa
+            // 
+            this.asdasfa.AutoSize = true;
+            this.asdasfa.Location = new System.Drawing.Point(3, 157);
+            this.asdasfa.Name = "asdasfa";
+            this.asdasfa.Size = new System.Drawing.Size(68, 13);
+            this.asdasfa.TabIndex = 12;
+            this.asdasfa.Text = "Varastosaldo";
+            // 
+            // TuotetiedotRTB
+            // 
+            this.TuotetiedotRTB.Location = new System.Drawing.Point(95, 220);
+            this.TuotetiedotRTB.Name = "TuotetiedotRTB";
+            this.TuotetiedotRTB.Size = new System.Drawing.Size(362, 250);
+            this.TuotetiedotRTB.TabIndex = 13;
+            this.TuotetiedotRTB.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 223);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Tuotetiedot";
+            // 
+            // PoistaTuoteBT
+            // 
+            this.PoistaTuoteBT.Location = new System.Drawing.Point(343, 477);
+            this.PoistaTuoteBT.Name = "PoistaTuoteBT";
+            this.PoistaTuoteBT.Size = new System.Drawing.Size(114, 23);
+            this.PoistaTuoteBT.TabIndex = 17;
+            this.PoistaTuoteBT.Text = "Poista";
+            this.PoistaTuoteBT.UseVisualStyleBackColor = true;
+            this.PoistaTuoteBT.Click += new System.EventHandler(this.PoistaTuoteBT_Click);
+            // 
+            // MuokkaaTuoteBT
+            // 
+            this.MuokkaaTuoteBT.Location = new System.Drawing.Point(177, 477);
+            this.MuokkaaTuoteBT.Name = "MuokkaaTuoteBT";
+            this.MuokkaaTuoteBT.Size = new System.Drawing.Size(114, 23);
+            this.MuokkaaTuoteBT.TabIndex = 18;
+            this.MuokkaaTuoteBT.Text = "Muokkaa";
+            this.MuokkaaTuoteBT.UseVisualStyleBackColor = true;
+            this.MuokkaaTuoteBT.Click += new System.EventHandler(this.MuokkaaTuoteBT_Click);
+            // 
+            // LisaaTuoteBT
+            // 
+            this.LisaaTuoteBT.Location = new System.Drawing.Point(3, 477);
+            this.LisaaTuoteBT.Name = "LisaaTuoteBT";
+            this.LisaaTuoteBT.Size = new System.Drawing.Size(114, 23);
+            this.LisaaTuoteBT.TabIndex = 19;
+            this.LisaaTuoteBT.Text = "Lisää uusi tuote";
+            this.LisaaTuoteBT.UseVisualStyleBackColor = true;
+            this.LisaaTuoteBT.Click += new System.EventHandler(this.LisaaTuoteBT_Click);
+            // 
+            // PaaKategoriaCB
+            // 
+            this.PaaKategoriaCB.FormattingEnabled = true;
+            this.PaaKategoriaCB.Items.AddRange(new object[] {
+            "komponentit",
+            "oheistuotteet",
+            "tietokoneet"});
+            this.PaaKategoriaCB.Location = new System.Drawing.Point(96, 59);
+            this.PaaKategoriaCB.Name = "PaaKategoriaCB";
+            this.PaaKategoriaCB.Size = new System.Drawing.Size(150, 21);
+            this.PaaKategoriaCB.TabIndex = 20;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 66);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Pääkategoria";
+            // 
+            // TilausnumeroTB
+            // 
+            this.TilausnumeroTB.Location = new System.Drawing.Point(107, 66);
+            this.TilausnumeroTB.Name = "TilausnumeroTB";
+            this.TilausnumeroTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausnumeroTB.TabIndex = 2;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(12, 73);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(70, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Tilausnumero";
+            // 
+            // TilausPnumTB
+            // 
+            this.TilausPnumTB.Location = new System.Drawing.Point(107, 235);
+            this.TilausPnumTB.Name = "TilausPnumTB";
+            this.TilausPnumTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausPnumTB.TabIndex = 4;
+            // 
+            // TilausKatuosoiteTB
+            // 
+            this.TilausKatuosoiteTB.Location = new System.Drawing.Point(107, 209);
+            this.TilausKatuosoiteTB.Name = "TilausKatuosoiteTB";
+            this.TilausKatuosoiteTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausKatuosoiteTB.TabIndex = 5;
+            // 
+            // TilausEmailTB
+            // 
+            this.TilausEmailTB.Location = new System.Drawing.Point(107, 183);
+            this.TilausEmailTB.Name = "TilausEmailTB";
+            this.TilausEmailTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausEmailTB.TabIndex = 6;
+            // 
+            // TilausPuhTB
+            // 
+            this.TilausPuhTB.Location = new System.Drawing.Point(107, 154);
+            this.TilausPuhTB.Name = "TilausPuhTB";
+            this.TilausPuhTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausPuhTB.TabIndex = 7;
+            // 
+            // TilausSukunimiTB
+            // 
+            this.TilausSukunimiTB.Location = new System.Drawing.Point(107, 124);
+            this.TilausSukunimiTB.Name = "TilausSukunimiTB";
+            this.TilausSukunimiTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausSukunimiTB.TabIndex = 8;
+            // 
+            // TilausEtunimiTB
+            // 
+            this.TilausEtunimiTB.Location = new System.Drawing.Point(107, 94);
+            this.TilausEtunimiTB.Name = "TilausEtunimiTB";
+            this.TilausEtunimiTB.Size = new System.Drawing.Size(322, 20);
+            this.TilausEtunimiTB.TabIndex = 9;
+            // 
+            // TilatutTuotteetRTB
+            // 
+            this.TilatutTuotteetRTB.Location = new System.Drawing.Point(107, 262);
+            this.TilatutTuotteetRTB.Name = "TilatutTuotteetRTB";
+            this.TilatutTuotteetRTB.Size = new System.Drawing.Size(322, 160);
+            this.TilatutTuotteetRTB.TabIndex = 10;
+            this.TilatutTuotteetRTB.Text = "";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 216);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(57, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Katuosoite";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 190);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(60, 13);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "Sähköposti";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 161);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 13);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Puhelin";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(12, 131);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "Sukunimi";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 101);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "Etunimi";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(12, 242);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 13);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Postinumero";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(12, 265);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(75, 13);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Tilatut tuotteet";
+            // 
+            // PoistaTilausBT
+            // 
+            this.PoistaTilausBT.Location = new System.Drawing.Point(270, 477);
+            this.PoistaTilausBT.Name = "PoistaTilausBT";
+            this.PoistaTilausBT.Size = new System.Drawing.Size(106, 23);
+            this.PoistaTilausBT.TabIndex = 18;
+            this.PoistaTilausBT.Text = "Poista";
+            this.PoistaTilausBT.UseVisualStyleBackColor = true;
+            this.PoistaTilausBT.Click += new System.EventHandler(this.PoistaTilausBT_Click);
+            // 
+            // MuokkaaTilausBT
+            // 
+            this.MuokkaaTilausBT.Location = new System.Drawing.Point(57, 476);
+            this.MuokkaaTilausBT.Name = "MuokkaaTilausBT";
+            this.MuokkaaTilausBT.Size = new System.Drawing.Size(106, 23);
+            this.MuokkaaTilausBT.TabIndex = 19;
+            this.MuokkaaTilausBT.Text = "Muokkaa";
+            this.MuokkaaTilausBT.UseVisualStyleBackColor = true;
+            this.MuokkaaTilausBT.Click += new System.EventHandler(this.MuokkaaTilausBT_Click);
+            // 
             // Tyontekijasivu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 678);
-            this.Controls.Add(this.VarastoPN);
             this.Controls.Add(this.TilauksetPN);
+            this.Controls.Add(this.VarastoPN);
             this.Controls.Add(this.AsiakkaatPN);
             this.Controls.Add(this.AlaPN);
             this.Controls.Add(this.TyontekijaEtusivuPN);
@@ -429,9 +757,40 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView TilauksetDG;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView VarastoDG;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox EtsiTB;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RichTextBox TuotetiedotRTB;
+        private System.Windows.Forms.Label asdasfa;
+        private System.Windows.Forms.Label asfgfewgwer;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TuoteTB;
+        private System.Windows.Forms.TextBox VarastosaldoTB;
+        private System.Windows.Forms.TextBox HintaTB;
+        private System.Windows.Forms.TextBox TuotekategoriaTB;
+        private System.Windows.Forms.Button LisaaTuoteBT;
+        private System.Windows.Forms.Button MuokkaaTuoteBT;
+        private System.Windows.Forms.Button PoistaTuoteBT;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox PaaKategoriaCB;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.RichTextBox TilatutTuotteetRTB;
+        private System.Windows.Forms.TextBox TilausEtunimiTB;
+        private System.Windows.Forms.TextBox TilausSukunimiTB;
+        private System.Windows.Forms.TextBox TilausPuhTB;
+        private System.Windows.Forms.TextBox TilausEmailTB;
+        private System.Windows.Forms.TextBox TilausKatuosoiteTB;
+        private System.Windows.Forms.TextBox TilausPnumTB;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox TilausnumeroTB;
+        private System.Windows.Forms.Button MuokkaaTilausBT;
+        private System.Windows.Forms.Button PoistaTilausBT;
     }
 }
