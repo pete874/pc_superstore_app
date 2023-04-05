@@ -38,6 +38,7 @@ namespace pc_superstore_app
             Application.Exit();
         }
 
+        //eri välilehtien esiin tulot
         private void AsiakkaatBT_Click(object sender, EventArgs e)
         {
             TyontekijaEtusivuPN.Visible = true;
@@ -60,6 +61,7 @@ namespace pc_superstore_app
             VarastoPN.Visible = true;
         }
 
+        //Asiakkaan tiedot tekstikenttiin celliä klikkaamalla
         private void AsiakkaatDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             OikeudetCB.Text = AsiakkaatDG.CurrentRow.Cells[3].Value.ToString();
@@ -68,6 +70,7 @@ namespace pc_superstore_app
             EmailTyontekijaTB.Text = AsiakkaatDG.CurrentRow.Cells[2].Value.ToString();
         }
 
+        //lisää käyttäjä
         private void LisaaKayttajaBT_Click(object sender, EventArgs e)
         {
             int oikeudet = Convert.ToInt32(OikeudetCB.Text);
@@ -103,6 +106,7 @@ namespace pc_superstore_app
             AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
         }
 
+        //Muokkaa käyttäjää
         private void MuokkaaKayttajaBT_Click(object sender, EventArgs e)
         {
             try
@@ -131,6 +135,7 @@ namespace pc_superstore_app
             AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
         }
 
+        //Poista käyttäjä
         private void PoistaKayttajaBT_Click(object sender, EventArgs e)
         {
             //Try catch lisätty, jottei tyhjistä kentistä ohjelma kaadu
@@ -154,7 +159,7 @@ namespace pc_superstore_app
             }
         }
 
-
+        //Varastosta etsintä
         private void EtsiTB_TextChanged(object sender, EventArgs e)
         {
             DataTable varastoTable = tyontekija.HaeVarasto();
@@ -171,6 +176,7 @@ namespace pc_superstore_app
             VarastoDG.DataSource = view;
         }
 
+        //Tiedot Varastopuolen tekstikenttiin celliä klikkaamalla
         private void VarastoDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TuotekategoriaTB.Text = VarastoDG.CurrentRow.Cells[1].Value.ToString();
@@ -197,6 +203,7 @@ namespace pc_superstore_app
             }
         }
 
+        // Lisää tuote
         private void LisaaTuoteBT_Click(object sender, EventArgs e)
         {
             String paakategoria = PaaKategoriaCB.Text.ToString();
@@ -235,6 +242,7 @@ namespace pc_superstore_app
             VarastoDG.DataSource = tyontekija.HaeVarasto();
         }
 
+        //Muokkaa tuotetta
         private void MuokkaaTuoteBT_Click(object sender, EventArgs e)
         {
             try
@@ -265,6 +273,7 @@ namespace pc_superstore_app
             VarastoDG.DataSource = tyontekija.HaeVarasto();
         }
 
+        //poista tuote
         private void PoistaTuoteBT_Click(object sender, EventArgs e)
         {
             //Try catch lisätty, jottei tyhjistä kentistä ohjelma kaadu
@@ -289,6 +298,7 @@ namespace pc_superstore_app
             }
         }
 
+        //tilauksen tiedot tekstikenttiin klikkaamalla celliä
         private void TilauksetDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TilausnumeroTB.Text = TilauksetDG.CurrentRow.Cells[0].Value.ToString();
@@ -303,6 +313,7 @@ namespace pc_superstore_app
             
         }
 
+        //poista tilaus
         private void PoistaTilausBT_Click(object sender, EventArgs e)
         {
             //Try catch lisätty, jottei tyhjistä kentistä ohjelma kaadu
@@ -326,6 +337,7 @@ namespace pc_superstore_app
             }
         }
 
+        //muokkaa tilausta
         private void MuokkaaTilausBT_Click(object sender, EventArgs e)
         {
             try
@@ -356,6 +368,31 @@ namespace pc_superstore_app
 
             }
             TilauksetDG.DataSource = tyontekija.HaeTilaukset();
+        }
+
+        //Tilauksistä etsintä
+        private void TilauksetEtsiTB_TextChanged(object sender, EventArgs e)
+        {
+            DataTable tilausTable = tyontekija.HaeTilaukset();
+
+            TilauksetDG.DataSource = tilausTable;
+
+            String etsintaTeksti = TilauksetEtsiTB.Text.ToString();
+
+            DataView view = new DataView(tilausTable);
+
+            //pystytäänkö etsintatekstiä parseemaan intiksi tilausnumerolla hakua varten?
+            if (int.TryParse(etsintaTeksti, out int etsintaNumero))
+            {
+                view.RowFilter = string.Format("tilausnro = {0}", etsintaNumero);
+            }
+            //jos ei pystytä, etsitään stringinä
+            else
+            {
+                view.RowFilter = string.Format("etunimi LIKE '%{0}%' OR sukunimi LIKE '%{0}%' OR puhelin LIKE '%{0}%' OR sähköposti LIKE '%{0}%' OR katuosoite LIKE '%{0}%' OR postinumero LIKE '%{0}%' OR tilaus LIKE '%{0}%'", etsintaTeksti);
+            }
+
+            TilauksetDG.DataSource = view;
         }
     }
 }
