@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace pc_superstore_app
 {
     public partial class Asiakassivu_form : Form
     {
+        YHDISTA yhteys = new YHDISTA();
+        TUOTTEET tuotteet = new TUOTTEET();
         public Asiakassivu_form()
         {
             InitializeComponent();
@@ -23,7 +26,14 @@ namespace pc_superstore_app
             TietokoneetPN.Visible = false;
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
-        }
+            OstoskoriPN.Visible = false;
+
+            OstoskoriDG.Columns.Add("tuote", "tuote");
+            OstoskoriDG.Columns.Add("hinta", "hinta");
+
+
+
+        }    
 
         private void Asiakassivu_form_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -36,6 +46,7 @@ namespace pc_superstore_app
             TietokoneetPN.Visible = false;
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
+            OstoskoriPN.Visible = false;
         }
 
 
@@ -45,6 +56,10 @@ namespace pc_superstore_app
             TietokoneetPN.Visible = true;
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
+            OstoskoriPN.Visible = false;
+
+            TietokoneetDG.DataSource = tuotteet.HaeTietokoneet();
+            TietokoneetDG.Columns["tuotetiedot"].Visible = false;
         }
 
         private void KomponentitBT_Click(object sender, EventArgs e)
@@ -53,6 +68,9 @@ namespace pc_superstore_app
             TietokoneetPN.Visible = false;
             KomponentitPN.Visible = true;
             OheistuotteetPN.Visible = false;
+            OstoskoriPN.Visible = false;
+
+            KomponentitDG.DataSource = tuotteet.HaeKomponentit();
         }
 
         private void OheistuotteetBT_Click(object sender, EventArgs e)
@@ -61,6 +79,73 @@ namespace pc_superstore_app
             TietokoneetPN.Visible = false;
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = true;
+            OstoskoriPN.Visible = false;
+
+            OheistuotteetDG.DataSource = tuotteet.HaeOheistuotteet();
+        }
+
+        private void TietokoneetDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TietokoneetRTB.Text = TietokoneetDG.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void KomponentitDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            KomponentitRTB.Text = KomponentitDG.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void OheistuotteetDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            OheistuotteetRTB.Text = OheistuotteetDG.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void LisaaTietokoneetBT_Click(object sender, EventArgs e)
+        {
+
+            String tuote = TietokoneetDG.CurrentRow.Cells[0].Value.ToString();
+            String hinta = TietokoneetDG.CurrentRow.Cells[2].Value.ToString();
+            
+
+            OstoskoriMaaraLB.Text = OstoskoriDG.RowCount.ToString();
+
+            OstoskoriDG.Rows.Add(tuote, hinta);
+
+            MessageBox.Show(tuote + " lisätty ostoskoriin.");
+        }
+
+        private void LisaaKomponentitBT_Click(object sender, EventArgs e)
+        {
+            String tuote = KomponentitDG.CurrentRow.Cells[0].Value.ToString();
+            String hinta = KomponentitDG.CurrentRow.Cells[2].Value.ToString();
+
+
+            OstoskoriMaaraLB.Text = OstoskoriDG.RowCount.ToString();
+
+            OstoskoriDG.Rows.Add(tuote, hinta);
+
+            MessageBox.Show(tuote + " lisätty ostoskoriin.");
+        }
+
+        private void LisaaOheistuotteetBT_Click(object sender, EventArgs e)
+        {
+            String tuote = OheistuotteetDG.CurrentRow.Cells[0].Value.ToString();
+            String hinta = OheistuotteetDG.CurrentRow.Cells[2].Value.ToString();
+
+
+            OstoskoriMaaraLB.Text = OstoskoriDG.RowCount.ToString();
+
+            OstoskoriDG.Rows.Add(tuote, hinta);
+
+            MessageBox.Show(tuote + " lisätty ostoskoriin.");
+        }
+
+        private void OstoskoriBT_Click(object sender, EventArgs e)
+        {
+            EtusivuAsiakasPN.Visible = false;
+            TietokoneetPN.Visible = false;
+            KomponentitPN.Visible = false;
+            OheistuotteetPN.Visible = false;
+            OstoskoriPN.Visible = true;
         }
     }
 }

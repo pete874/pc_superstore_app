@@ -68,6 +68,7 @@
     <Compile Include="Rekisteroidy_form.Designer.cs">
       <DependentUpon>Rekisteroidy_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="TUOTTEET.cs" />
     <Compile Include="TYONTEKIJA.cs" />
     <Compile Include="Tyontekijasivu_form.cs">
       <SubType>Form</SubType>
