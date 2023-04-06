@@ -394,5 +394,44 @@ namespace pc_superstore_app
 
             TilauksetDG.DataSource = view;
         }
+
+        private void NaytaTyontekijatBT_Click(object sender, EventArgs e)
+        {
+            DataTable tyontekijat = (DataTable)tyontekija.HaeTyontekijaAsiakkaat();
+
+            DataView tyontekijat2 = tyontekijat.DefaultView;
+
+            tyontekijat2.RowFilter = "oikeudet = 1";
+
+            AsiakkaatDG.DataSource = tyontekijat2;
+        }
+
+        private void NaytaAsiakkaatBT_Click(object sender, EventArgs e)
+        {
+            DataTable asiakkaat = (DataTable)tyontekija.HaeTyontekijaAsiakkaat();
+
+            DataView asiakkaat2 = asiakkaat.DefaultView;
+
+            asiakkaat2.RowFilter = "oikeudet = 2";
+
+            AsiakkaatDG.DataSource = asiakkaat2;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            DataTable kayttajat = tyontekija.HaeTyontekijaAsiakkaat();
+
+            AsiakkaatDG.DataSource = kayttajat;
+
+            String etsintaTeksti = KayttajatEtsiTB.Text.ToString();
+
+            DataView view = new DataView(kayttajat);
+
+            view.RowFilter = string.Format("kayttajatunnus LIKE '%{0}%' OR email LIKE '%{0}%'", etsintaTeksti);
+
+
+            AsiakkaatDG.DataSource = view;
+        }
     }
 }
