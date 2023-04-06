@@ -96,6 +96,7 @@
             this.NaytaAsiakkaatBT = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.KayttajatEtsiTB = new System.Windows.Forms.TextBox();
+            this.TyontekjiaKirjauduUlosBT = new System.Windows.Forms.Button();
             this.TyontekijaEtusivuPN.SuspendLayout();
             this.AsiakkaatPN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AsiakkaatDG)).BeginInit();
@@ -108,6 +109,7 @@
             // TyontekijaEtusivuPN
             // 
             this.TyontekijaEtusivuPN.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TyontekijaEtusivuPN.Controls.Add(this.TyontekjiaKirjauduUlosBT);
             this.TyontekijaEtusivuPN.Controls.Add(this.VarastoBT);
             this.TyontekijaEtusivuPN.Controls.Add(this.TilauksetBT);
             this.TyontekijaEtusivuPN.Controls.Add(this.AsiakkaatBT);
@@ -769,6 +771,16 @@
             this.KayttajatEtsiTB.TabIndex = 17;
             this.KayttajatEtsiTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // TyontekjiaKirjauduUlosBT
+            // 
+            this.TyontekjiaKirjauduUlosBT.Location = new System.Drawing.Point(1046, 12);
+            this.TyontekjiaKirjauduUlosBT.Name = "TyontekjiaKirjauduUlosBT";
+            this.TyontekjiaKirjauduUlosBT.Size = new System.Drawing.Size(75, 23);
+            this.TyontekjiaKirjauduUlosBT.TabIndex = 4;
+            this.TyontekjiaKirjauduUlosBT.Text = "Kirjaudu ulos";
+            this.TyontekjiaKirjauduUlosBT.UseVisualStyleBackColor = true;
+            this.TyontekjiaKirjauduUlosBT.Click += new System.EventHandler(this.TyontekjiaKirjauduUlosBT_Click);
+            // 
             // Tyontekijasivu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -868,5 +880,6 @@
         private System.Windows.Forms.Button NaytaTyontekijatBT;
         private System.Windows.Forms.TextBox KayttajatEtsiTB;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button TyontekjiaKirjauduUlosBT;
     }
 }
