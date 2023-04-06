@@ -77,6 +77,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.SummatekstiLB = new System.Windows.Forms.Label();
             this.SummaLB = new System.Windows.Forms.Label();
             this.HeaderAsiakasPN.SuspendLayout();
             this.FooterAsiakasPN.SuspendLayout();
@@ -164,6 +165,7 @@
             // 
             this.FooterAsiakasPN.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FooterAsiakasPN.Controls.Add(this.SummaLB);
+            this.FooterAsiakasPN.Controls.Add(this.SummatekstiLB);
             this.FooterAsiakasPN.Controls.Add(this.label9);
             this.FooterAsiakasPN.Controls.Add(this.OstoskoriMaaraLB);
             this.FooterAsiakasPN.Controls.Add(this.OstoskoriFooterLB);
@@ -603,16 +605,27 @@
             this.label17.TabIndex = 21;
             this.label17.Text = "Ostoskorin sisältö";
             // 
+            // SummatekstiLB
+            // 
+            this.SummatekstiLB.AutoSize = true;
+            this.SummatekstiLB.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SummatekstiLB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SummatekstiLB.Location = new System.Drawing.Point(219, 18);
+            this.SummatekstiLB.Name = "SummatekstiLB";
+            this.SummatekstiLB.Size = new System.Drawing.Size(79, 23);
+            this.SummatekstiLB.TabIndex = 3;
+            this.SummatekstiLB.Text = "Summa:";
+            // 
             // SummaLB
             // 
             this.SummaLB.AutoSize = true;
             this.SummaLB.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SummaLB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SummaLB.Location = new System.Drawing.Point(219, 18);
+            this.SummaLB.Location = new System.Drawing.Point(305, 18);
             this.SummaLB.Name = "SummaLB";
-            this.SummaLB.Size = new System.Drawing.Size(79, 23);
-            this.SummaLB.TabIndex = 3;
-            this.SummaLB.Text = "Summa:";
+            this.SummaLB.Size = new System.Drawing.Size(32, 23);
+            this.SummaLB.TabIndex = 4;
+            this.SummaLB.Text = "0€";
             // 
             // Asiakassivu_form
             // 
@@ -703,6 +716,7 @@
         private System.Windows.Forms.Button PoistaTuoteBT;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label SummatekstiLB;
         private System.Windows.Forms.Label SummaLB;
     }
 }

@@ -27,6 +27,8 @@ namespace pc_superstore_app
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
             OstoskoriPN.Visible = false;
+            SummatekstiLB.Visible = false;
+            SummaLB.Visible = false;
 
             OstoskoriDG.Columns.Add("tuote", "tuote");
             OstoskoriDG.Columns.Add("hinta", "hinta");
@@ -47,6 +49,8 @@ namespace pc_superstore_app
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
             OstoskoriPN.Visible = false;
+            SummatekstiLB.Visible = false;
+            SummaLB.Visible = false;
         }
 
 
@@ -57,6 +61,8 @@ namespace pc_superstore_app
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
             OstoskoriPN.Visible = false;
+            SummatekstiLB.Visible = false;
+            SummaLB.Visible = false;
 
             TietokoneetDG.DataSource = tuotteet.HaeTietokoneet();
             TietokoneetDG.Columns["tuotetiedot"].Visible = false;
@@ -69,6 +75,8 @@ namespace pc_superstore_app
             KomponentitPN.Visible = true;
             OheistuotteetPN.Visible = false;
             OstoskoriPN.Visible = false;
+            SummatekstiLB.Visible = false;
+            SummaLB.Visible = false;
 
             KomponentitDG.DataSource = tuotteet.HaeKomponentit();
             KomponentitDG.Columns["tuotetiedot"].Visible = false;
@@ -81,6 +89,8 @@ namespace pc_superstore_app
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = true;
             OstoskoriPN.Visible = false;
+            SummatekstiLB.Visible = false;
+            SummaLB.Visible = false;
 
             OheistuotteetDG.DataSource = tuotteet.HaeOheistuotteet();
             OheistuotteetDG.Columns["tuotetiedot"].Visible = false;
@@ -101,44 +111,60 @@ namespace pc_superstore_app
             OheistuotteetRTB.Text = OheistuotteetDG.CurrentRow.Cells[4].Value.ToString();
         }
 
+
+        // Tuotteiden lisäykset
+        // Luodaan muuttuja loppusummalle
+        public int loppusumma = 0;
+       
+        // Tietokonepakettien lisäys. Haetaan Ostoskorin datagridiin vain tuotteen nimi ja hinta
         private void LisaaTietokoneetBT_Click(object sender, EventArgs e)
         {
 
             String tuote = TietokoneetDG.CurrentRow.Cells[0].Value.ToString();
             String hinta = TietokoneetDG.CurrentRow.Cells[2].Value.ToString();
-            
+            int summahinta = Convert.ToInt32(hinta);
 
             OstoskoriMaaraLB.Text = OstoskoriDG.RowCount.ToString();
 
             OstoskoriDG.Rows.Add(tuote, hinta);
 
+            
+            loppusumma += summahinta;
             MessageBox.Show(tuote + " lisätty ostoskoriin.");
+            SummaLB.Text = loppusumma.ToString() + " €";
         }
 
+        // Komponenttien lisäys
         private void LisaaKomponentitBT_Click(object sender, EventArgs e)
         {
             String tuote = KomponentitDG.CurrentRow.Cells[0].Value.ToString();
             String hinta = KomponentitDG.CurrentRow.Cells[2].Value.ToString();
-
+            int summahinta = Convert.ToInt32(hinta);
 
             OstoskoriMaaraLB.Text = OstoskoriDG.RowCount.ToString();
 
             OstoskoriDG.Rows.Add(tuote, hinta);
 
+            loppusumma += summahinta;
             MessageBox.Show(tuote + " lisätty ostoskoriin.");
+            SummaLB.Text = loppusumma.ToString() + " €";
         }
+
+        // Oheistuotteiden lisäys
 
         private void LisaaOheistuotteetBT_Click(object sender, EventArgs e)
         {
             String tuote = OheistuotteetDG.CurrentRow.Cells[0].Value.ToString();
             String hinta = OheistuotteetDG.CurrentRow.Cells[2].Value.ToString();
-
+            int summahinta = Convert.ToInt32(hinta);
 
             OstoskoriMaaraLB.Text = OstoskoriDG.RowCount.ToString();
 
             OstoskoriDG.Rows.Add(tuote, hinta);
 
+            loppusumma += summahinta;
             MessageBox.Show(tuote + " lisätty ostoskoriin.");
+            SummaLB.Text = loppusumma.ToString() + " €";
         }
 
         private void OstoskoriBT_Click(object sender, EventArgs e)
@@ -148,8 +174,11 @@ namespace pc_superstore_app
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
             OstoskoriPN.Visible = true;
+            SummatekstiLB.Visible = true;
+            SummaLB.Visible = true;
         }
 
+        // Asiakas voi poistaa tuotteen klikkaamalla haluttua riviä ja painamalla poista-nappia
         private void PoistaTuoteBT_Click(object sender, EventArgs e)
         {
              if (OstoskoriDG.SelectedRows.Count > 0)
