@@ -436,10 +436,12 @@ namespace pc_superstore_app
 
         private void TyontekjiaKirjauduUlosBT_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
 
             Sisaankirjautuminen_form sisaankirjautuminen = new Sisaankirjautuminen_form();
             sisaankirjautuminen.Show();
+
+            this.Hide();
         }
     }
 }

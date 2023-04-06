@@ -128,6 +128,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Sisaankirjautuminen_form";
             this.Text = "Sisäänkirjautuminen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Sisaankirjautuminen_form_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

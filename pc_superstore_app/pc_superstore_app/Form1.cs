@@ -55,5 +55,10 @@ namespace pc_superstore_app
 
             
         }
+
+        private void Sisaankirjautuminen_form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
