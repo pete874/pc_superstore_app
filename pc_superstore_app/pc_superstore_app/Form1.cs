@@ -38,12 +38,14 @@ namespace pc_superstore_app
                 MessageBox.Show("Tervetuloa työntekijä!");
                 Tyontekijasivu_form tyontekijasivu = new Tyontekijasivu_form();
                 tyontekijasivu.Show();
+                this.Hide();
             }
             else if(asiakas.KirjautumisenTarkastus(kayttajatunnus, salasana) == 2)
             {
                 MessageBox.Show("Tervetuloa asiakas!");
                 Asiakassivu_form asiakassivu = new Asiakassivu_form();
                 asiakassivu.Show();
+                this.Hide();
             }
             else if(asiakas.KirjautumisenTarkastus(kayttajatunnus, salasana) == 3)
             {

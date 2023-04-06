@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04.04.2023 klo 14:39
--- Palvelimen versio: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: 06.04.2023 klo 11:42
+-- Palvelimen versio: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `kayttajat` (
   `salasana` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `oikeudet` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `kayttajat`
@@ -58,7 +58,7 @@ CREATE TABLE `komponentit` (
   `saldo` int(6) NOT NULL,
   `hinta` int(6) NOT NULL,
   `tuotetiedot` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `komponentit`
@@ -82,7 +82,7 @@ CREATE TABLE `oheistuotteet` (
   `saldo` int(6) NOT NULL,
   `hinta` int(6) NOT NULL,
   `tuotetiedot` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `oheistuotteet`
@@ -90,7 +90,7 @@ CREATE TABLE `oheistuotteet` (
 
 INSERT INTO `oheistuotteet` (`tuote`, `tuotekategoria`, `saldo`, `hinta`, `tuotetiedot`) VALUES
 ('Logitech G PRO X Gaming Headset', 'kuulokkeet', 25, 90, 'ENCE e-sports joukkueen suosittelema Logitech tuote.'),
-('Logitech G502 HERO, optinen pelihiiri, 25 000 dpi, musta', 'hiiret', 25, 70, 'Logitechin G502 uudella HERO sensorilla takaa sen, että sinulla on kaikki mitä voittamiseen vaaditaan. HERO on tarkin koskaan Logitechin valmistama pelitunnistin. Siinä on seuraavan sukupolven tarkkuus ja kokonaan uusiksi suunniteltu arkkitehtuuri. Toistaiseksi nopeimman kuvataajuudenkäsittelyn ansiosta HERO kykenee yli 400 IPS:ään koko 100–25 000 DPI:n välillä, eikä siinä ole lainkaan tasoitusta, suodatusta tai kiihdytystä. HERO saavuttaa kilpatason tarkkuuden ja kaikkien aikojen yhdenmukaisimmat vasteajat. Muista mukauttaa ja optimoida DPI-asetukset Logitech Gaming Softwarella (LGS).'),
+('Logitech G502 HERO, optinen pelihiiri, 25 000 dpi, musta', 'hiiret', 25, 70, 'Logitechin G502 uudella HERO sensorilla takaa sen, että sinulla on kaikki mitä voittamiseen vaaditaan. \r\n\r\nHERO on tarkin koskaan Logitechin valmistama pelitunnistin. Siinä on seuraavan sukupolven tarkkuus ja kokonaan uusiksi suunniteltu arkkitehtuuri.\r\n\r\nToistaiseksi nopeimman kuvataajuudenkäsittelyn ansiosta HERO kykenee yli 400 IPS:ään koko 100–25 000 DPI:n välillä, eikä siinä ole lainkaan tasoitusta, suodatusta tai kiihdytystä. HERO saavuttaa kilpatason tarkkuuden ja kaikkien aikojen yhdenmukaisimmat vasteajat. \r\n\r\nMuista mukauttaa ja optimoida DPI-asetukset Logitech Gaming Softwarella (LGS).'),
 ('Logitech PRO, mekaaninen Tenkeyless-pelinäppäimistö', 'näppäimistöt', 25, 118, 'Mekaaninen Logitech G® PRO -pelinäppäimistö on suunniteltu e-urheilijoiden kanssa e-urheilijoita varten. Se on pienikokoinen eikä siinä ole lainkaan numeronäppäimistöä, joten pöydällä on hyvin tilaa hiiren liikkeille alhaisilla herkkyysasetuksilla.');
 
 -- --------------------------------------------------------
@@ -105,7 +105,7 @@ CREATE TABLE `tietokoneet` (
   `saldo` int(6) NOT NULL,
   `hinta` int(6) NOT NULL,
   `tuotetiedot` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `tietokoneet`
@@ -113,9 +113,9 @@ CREATE TABLE `tietokoneet` (
 
 INSERT INTO `tietokoneet` (`tuote`, `tuotekategoria`, `saldo`, `hinta`, `tuotetiedot`) VALUES
 ('Asus 15,6\" ROG Zephyrus G15 GA503RM', 'kannettavat', 25, 2099, 'Ominaisuudet:\r\n\r\nAMD Ryzen 7 6800HS, 16 Gt, 1 Tt SSD\r\n15,6\" WQHD 3ms 240 Hz -IPS-näyttö\r\nNVIDIA GeForce RTX 3060\r\nMUX switch\r\nUusi DDR5 muisti & WiFi 6E tekniikka'),
-('Asus 15,6\" TUF Gaming F15 FX507ZM, kannettava pelitietokone', 'kannettavat', 24, 1797, 'Käyttöjärjestelmä: Windows 11 Home\nNäyttö: 15,6\", Anti-Glare, IPS, 144Hz, 1920 x 1080\nProsessori: Intel Core i7-12700H, 24MB, 14-core (6 P + 8 E)\nNäytönohjain: NVIDIA® GeForce RTX™ 3060 Laptop GPU, 6GB GDDR6 (1752MHz at 140W (1702MHz Boost Clock+50MHz OC, 115W+25W Dynamic Boost))\nMuisti: 16GB (2 x 8GB) DDR5-4800 SO-DIMM\nKiintolevy: 1TB SSD (PCIe 3.0 NVMe M.2)\nOptinen asema: Ei\n4G/LTE-modeemi: Ei\nWLAN: Wi-Fi 6 (802.11ax) (Dual band) 2*2\nBluetooth: 5.1\nKortinlukija: Ei\nLiitännät:'),
-('Jimm\'s Meshify 4090', 'pöytäkoneet', 25, 4700, 'Komponenttilistaus\r\nProsessori: Intel Core i9-13900K, 3.0/5.8 GHz\r\nEmolevy: ASUS Intel Z790 -piirisarjaan pohjautuva\r\nNäytönohjain: ASUS NVIDIA Geforce RTX 4090, 24GB GDDR6X\r\nKeskusmuisti: 32GB (2 x 16GB) RGB DDR5 5600MHz\r\nMassamuisti: 1TB M.2 NVMe SSD\r\nOptinen asema: - (HUOM! Kotelossa ei ole paikkaa sisäiselle optiselle asemalle!)\r\nProsessorijäähdytys: Lian Li - GALAHAD 360 SL V2, AIO-nestejäähdytys, valkoinen\r\nKotelo: Fractal Design - Meshify 2 White, TG Clear Tint, valkoinen\r\nVirtalähde: Corsair 1200W 80+ Platinum\r\nKäyttöjärjestelmä: Windows 11 Home\r\nMuuta: Wi-Fi & Bluetooth, 3 x Lian Li SL140 RGB tuulettimet, Lian Li näytönohjaintuki'),
-('Jimm\'s Pro Gamer Vishnu 3070', 'pöytäkoneet', 25, 1900, 'Komponenttilistaus\r\nProsessori: AMD Ryzen 7 5800X, 3.8/4.7 GHz\r\nEmolevy: ASUS AMD B550 -piirisarjaan pohjautuva\r\nNäytönohjain: ASUS NVIDIA Geforce RTX 3070, 8GB GDDR6\r\nKeskusmuisti: 16GB (2 x 8GB) DDR4 3600MHz\r\nMassamuisti: 1TB M.2 NVMe SSD\r\nOptinen asema: - (HUOM! Kotelossa ei ole paikkaa sisäiselle optiselle asemalle!)\r\nProsessorijäähdytys: Alpenföhn Dolomit Advanced\r\nKotelo: Kolink Castle\r\nVirtalähde: 750W 80+ Gold\r\nKäyttöjärjestelmä: Windows 11 Home');
+('Asus 15,6\" TUF Gaming F15 FX507ZM, kannettava pelitietokone', 'kannettavat', 24, 1797, 'Ominaisuudet:\r\n\r\n- Käyttöjärjestelmä: Windows 11 Home\r\n- Näyttö: 15,6\", Anti-Glare, IPS, 144Hz, \r\n  1920 x 1080\r\n- Prosessori: Intel Core i7-12700H, 24MB, \r\n  14-core (6 P + 8 E)\r\n- Näytönohjain: NVIDIA® GeForce RTX™ 3060 \r\n  Laptop GPU, 6GB GDDR6 (1752MHz at 140W \r\n  (1702MHz Boost Clock+50MHz OC, 115W+25W \r\n  Dynamic Boost))\r\n- Muisti: 16GB (2 x 8GB) DDR5-4800 SO- \r\n  DIMM\r\n- Kiintolevy: 1TB SSD (PCIe 3.0 NVMe M.2)\r\n  Optinen asema: Ei\r\n- 4G/LTE-modeemi: Ei\r\n  WLAN: Wi-Fi 6 (802.11ax) (Dual band) \r\n  2*2\r\n- Bluetooth: 5.1\r\n- Kortinlukija: Ei\r\n'),
+('Jimm\'s Meshify 4090', 'pöytäkoneet', 25, 4700, 'Ominaisuudet:\r\n\r\n- Prosessori: Intel Core i9-13900K, \r\n  3.0/5.8 GHz\r\n- Emolevy: ASUS Intel Z790 -piirisarjaan \r\n  pohjautuva\r\n- Näytönohjain: ASUS NVIDIA Geforce RTX \r\n  4090, 24GB GDDR6X\r\n- Keskusmuisti: 32GB (2 x 16GB) RGB DDR5 \r\n  5600MHz\r\n- Massamuisti: 1TB M.2 NVMe SSD\r\n- Optinen asema: - (HUOM! Kotelossa ei \r\n  ole paikkaa sisäiselle optiselle \r\n  asemalle!)\r\n- Prosessorijäähdytys: Lian Li - GALAHAD \r\n  360 SL V2, AIO-nestejäähdytys, \r\n  valkoinen\r\n- Kotelo: Fractal Design - Meshify 2 \r\n  White, TG Clear Tint, valkoinen\r\n- Virtalähde: Corsair 1200W 80+ Platinum\r\n- Käyttöjärjestelmä: Windows 11 Home\r\n- Muuta: Wi-Fi & Bluetooth, 3 x Lian Li \r\n  SL140 RGB tuulettimet, Lian Li \r\n  näytönohjaintuki'),
+('Jimm\'s Pro Gamer Vishnu 3070', 'pöytäkoneet', 25, 1900, 'Ominsaisuudet:\r\n\r\n- Prosessori: AMD Ryzen 7 5800X, 3.8/4.7 \r\n  GHz\r\n- Emolevy: ASUS AMD B550 -piirisarjaan \r\n  pohjautuva\r\n- Näytönohjain: ASUS NVIDIA Geforce RTX \r\n  3070, 8GB GDDR6\r\n- Keskusmuisti: 16GB (2 x 8GB) DDR4 \r\n  3600MHz\r\n- Massamuisti: 1TB M.2 NVMe SSD\r\n- Optinen asema: - (HUOM! Kotelossa ei \r\n  ole paikkaa sisäiselle optiselle \r\n  asemalle!)\r\n- Prosessorijäähdytys: Alpenföhn Dolomit \r\n  Advanced\r\n- Kotelo: Kolink Castle\r\n- Virtalähde: 750W 80+ Gold\r\n- Käyttöjärjestelmä: Windows 11 Home');
 
 -- --------------------------------------------------------
 
@@ -132,14 +132,14 @@ CREATE TABLE `tilaukset` (
   `katuosoite` varchar(50) NOT NULL,
   `postinumero` varchar(5) NOT NULL,
   `tilaus` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vedos taulusta `tilaukset`
 --
 
 INSERT INTO `tilaukset` (`tilausnro`, `etunimi`, `sukunimi`, `puhelin`, `sähköposti`, `katuosoite`, `postinumero`, `tilaus`) VALUES
-(2, 'fdagregr22', 'aergeragae', 'reagrea', 'aergaer', 'greagae', 'raega', 'areg aer gare grea g aer \nrgea er gaer 22');
+(2, 'hgtsh', 'shhsfh', '6546456', 'hsfgh', 'hsth', 'sthh', '');
 
 --
 -- Indexes for dumped tables

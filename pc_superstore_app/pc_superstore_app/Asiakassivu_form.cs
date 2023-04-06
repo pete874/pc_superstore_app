@@ -71,6 +71,7 @@ namespace pc_superstore_app
             OstoskoriPN.Visible = false;
 
             KomponentitDG.DataSource = tuotteet.HaeKomponentit();
+            KomponentitDG.Columns["tuotetiedot"].Visible = false;
         }
 
         private void OheistuotteetBT_Click(object sender, EventArgs e)
@@ -82,6 +83,7 @@ namespace pc_superstore_app
             OstoskoriPN.Visible = false;
 
             OheistuotteetDG.DataSource = tuotteet.HaeOheistuotteet();
+            OheistuotteetDG.Columns["tuotetiedot"].Visible = false;
         }
 
         private void TietokoneetDG_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -146,6 +148,19 @@ namespace pc_superstore_app
             KomponentitPN.Visible = false;
             OheistuotteetPN.Visible = false;
             OstoskoriPN.Visible = true;
+        }
+
+        private void PoistaTuoteBT_Click(object sender, EventArgs e)
+        {
+             if (OstoskoriDG.SelectedRows.Count > 0)
+             {
+                //Loopataan läpi valitut rivit
+                 foreach (DataGridViewRow row in OstoskoriDG.SelectedRows)
+                 {
+                   OstoskoriDG.Rows.Remove(row);
+                 }
+
+             }
         }
     }
 }
