@@ -35,6 +35,8 @@
             this.TietokoneetBT = new System.Windows.Forms.Button();
             this.EtusivuLB = new System.Windows.Forms.Label();
             this.FooterAsiakasPN = new System.Windows.Forms.Panel();
+            this.SummaLB = new System.Windows.Forms.Label();
+            this.SummatekstiLB = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.OstoskoriMaaraLB = new System.Windows.Forms.Label();
             this.OstoskoriFooterLB = new System.Windows.Forms.Label();
@@ -59,26 +61,24 @@
             this.OheistuotteetDG = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.OstoskoriPN = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.LahetaTilausBT = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.PnumTB = new System.Windows.Forms.TextBox();
+            this.OsoiteTB = new System.Windows.Forms.TextBox();
+            this.EmailTB = new System.Windows.Forms.TextBox();
+            this.PuhelinTB = new System.Windows.Forms.TextBox();
+            this.SukunimiTB = new System.Windows.Forms.TextBox();
+            this.EtunimiTB = new System.Windows.Forms.TextBox();
+            this.PoistaTuoteBT = new System.Windows.Forms.Button();
             this.OstoskoriDG = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
-            this.PoistaTuoteBT = new System.Windows.Forms.Button();
-            this.LahetaTilausBT = new System.Windows.Forms.Button();
-            this.EtunimiTB = new System.Windows.Forms.TextBox();
-            this.SukunimiTB = new System.Windows.Forms.TextBox();
-            this.PuhelinTB = new System.Windows.Forms.TextBox();
-            this.EmailTB = new System.Windows.Forms.TextBox();
-            this.OsoiteTB = new System.Windows.Forms.TextBox();
-            this.PnumTB = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.SummatekstiLB = new System.Windows.Forms.Label();
-            this.SummaLB = new System.Windows.Forms.Label();
             this.HeaderAsiakasPN.SuspendLayout();
             this.FooterAsiakasPN.SuspendLayout();
             this.EtusivuAsiakasPN.SuspendLayout();
@@ -174,6 +174,28 @@
             this.FooterAsiakasPN.Name = "FooterAsiakasPN";
             this.FooterAsiakasPN.Size = new System.Drawing.Size(1133, 60);
             this.FooterAsiakasPN.TabIndex = 3;
+            // 
+            // SummaLB
+            // 
+            this.SummaLB.AutoSize = true;
+            this.SummaLB.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SummaLB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SummaLB.Location = new System.Drawing.Point(305, 18);
+            this.SummaLB.Name = "SummaLB";
+            this.SummaLB.Size = new System.Drawing.Size(32, 23);
+            this.SummaLB.TabIndex = 4;
+            this.SummaLB.Text = "0€";
+            // 
+            // SummatekstiLB
+            // 
+            this.SummatekstiLB.AutoSize = true;
+            this.SummatekstiLB.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SummatekstiLB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SummatekstiLB.Location = new System.Drawing.Point(219, 18);
+            this.SummatekstiLB.Name = "SummatekstiLB";
+            this.SummatekstiLB.Size = new System.Drawing.Size(79, 23);
+            this.SummatekstiLB.TabIndex = 3;
+            this.SummatekstiLB.Text = "Summa:";
             // 
             // label9
             // 
@@ -437,6 +459,156 @@
             this.OstoskoriPN.Size = new System.Drawing.Size(1133, 518);
             this.OstoskoriPN.TabIndex = 6;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(667, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(164, 23);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Ostoskorin sisältö";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(191, 101);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(178, 23);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "Syötä toimitustiedot";
+            // 
+            // LahetaTilausBT
+            // 
+            this.LahetaTilausBT.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.LahetaTilausBT.Location = new System.Drawing.Point(223, 447);
+            this.LahetaTilausBT.Name = "LahetaTilausBT";
+            this.LahetaTilausBT.Size = new System.Drawing.Size(105, 34);
+            this.LahetaTilausBT.TabIndex = 8;
+            this.LahetaTilausBT.Text = "Lähetä tilaus";
+            this.LahetaTilausBT.UseVisualStyleBackColor = false;
+            this.LahetaTilausBT.Click += new System.EventHandler(this.LahetaTilausBT_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(55, 404);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(105, 19);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "Postinumero:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(55, 354);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 19);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "Katuosoite:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(55, 303);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 19);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Sähköposti:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(55, 252);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 19);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Puhelin:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(55, 199);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 19);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Sukunimi:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(55, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 19);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Etunimi:";
+            // 
+            // PnumTB
+            // 
+            this.PnumTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PnumTB.Location = new System.Drawing.Point(180, 403);
+            this.PnumTB.Name = "PnumTB";
+            this.PnumTB.Size = new System.Drawing.Size(208, 27);
+            this.PnumTB.TabIndex = 13;
+            // 
+            // OsoiteTB
+            // 
+            this.OsoiteTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OsoiteTB.Location = new System.Drawing.Point(180, 353);
+            this.OsoiteTB.Name = "OsoiteTB";
+            this.OsoiteTB.Size = new System.Drawing.Size(208, 27);
+            this.OsoiteTB.TabIndex = 12;
+            // 
+            // EmailTB
+            // 
+            this.EmailTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailTB.Location = new System.Drawing.Point(180, 302);
+            this.EmailTB.Name = "EmailTB";
+            this.EmailTB.Size = new System.Drawing.Size(208, 27);
+            this.EmailTB.TabIndex = 11;
+            // 
+            // PuhelinTB
+            // 
+            this.PuhelinTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PuhelinTB.Location = new System.Drawing.Point(180, 251);
+            this.PuhelinTB.Name = "PuhelinTB";
+            this.PuhelinTB.Size = new System.Drawing.Size(208, 27);
+            this.PuhelinTB.TabIndex = 10;
+            // 
+            // SukunimiTB
+            // 
+            this.SukunimiTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SukunimiTB.Location = new System.Drawing.Point(180, 198);
+            this.SukunimiTB.Name = "SukunimiTB";
+            this.SukunimiTB.Size = new System.Drawing.Size(208, 27);
+            this.SukunimiTB.TabIndex = 9;
+            // 
+            // EtunimiTB
+            // 
+            this.EtunimiTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EtunimiTB.Location = new System.Drawing.Point(180, 147);
+            this.EtunimiTB.Name = "EtunimiTB";
+            this.EtunimiTB.Size = new System.Drawing.Size(208, 27);
+            this.EtunimiTB.TabIndex = 8;
+            // 
+            // PoistaTuoteBT
+            // 
+            this.PoistaTuoteBT.BackColor = System.Drawing.Color.Tomato;
+            this.PoistaTuoteBT.Location = new System.Drawing.Point(460, 447);
+            this.PoistaTuoteBT.Name = "PoistaTuoteBT";
+            this.PoistaTuoteBT.Size = new System.Drawing.Size(105, 34);
+            this.PoistaTuoteBT.TabIndex = 7;
+            this.PoistaTuoteBT.Text = "Poista tuote";
+            this.PoistaTuoteBT.UseVisualStyleBackColor = false;
+            this.PoistaTuoteBT.Click += new System.EventHandler(this.PoistaTuoteBT_Click);
+            // 
             // OstoskoriDG
             // 
             this.OstoskoriDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -455,177 +627,6 @@
             this.label8.Size = new System.Drawing.Size(139, 35);
             this.label8.TabIndex = 1;
             this.label8.Text = "Ostoskori";
-            // 
-            // PoistaTuoteBT
-            // 
-            this.PoistaTuoteBT.BackColor = System.Drawing.Color.Tomato;
-            this.PoistaTuoteBT.Location = new System.Drawing.Point(460, 447);
-            this.PoistaTuoteBT.Name = "PoistaTuoteBT";
-            this.PoistaTuoteBT.Size = new System.Drawing.Size(105, 34);
-            this.PoistaTuoteBT.TabIndex = 7;
-            this.PoistaTuoteBT.Text = "Poista tuote";
-            this.PoistaTuoteBT.UseVisualStyleBackColor = false;
-            this.PoistaTuoteBT.Click += new System.EventHandler(this.PoistaTuoteBT_Click);
-            // 
-            // LahetaTilausBT
-            // 
-            this.LahetaTilausBT.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.LahetaTilausBT.Location = new System.Drawing.Point(223, 447);
-            this.LahetaTilausBT.Name = "LahetaTilausBT";
-            this.LahetaTilausBT.Size = new System.Drawing.Size(105, 34);
-            this.LahetaTilausBT.TabIndex = 8;
-            this.LahetaTilausBT.Text = "Lähetä tilaus";
-            this.LahetaTilausBT.UseVisualStyleBackColor = false;
-            // 
-            // EtunimiTB
-            // 
-            this.EtunimiTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EtunimiTB.Location = new System.Drawing.Point(180, 147);
-            this.EtunimiTB.Name = "EtunimiTB";
-            this.EtunimiTB.Size = new System.Drawing.Size(208, 27);
-            this.EtunimiTB.TabIndex = 8;
-            // 
-            // SukunimiTB
-            // 
-            this.SukunimiTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SukunimiTB.Location = new System.Drawing.Point(180, 198);
-            this.SukunimiTB.Name = "SukunimiTB";
-            this.SukunimiTB.Size = new System.Drawing.Size(208, 27);
-            this.SukunimiTB.TabIndex = 9;
-            // 
-            // PuhelinTB
-            // 
-            this.PuhelinTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PuhelinTB.Location = new System.Drawing.Point(180, 251);
-            this.PuhelinTB.Name = "PuhelinTB";
-            this.PuhelinTB.Size = new System.Drawing.Size(208, 27);
-            this.PuhelinTB.TabIndex = 10;
-            // 
-            // EmailTB
-            // 
-            this.EmailTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTB.Location = new System.Drawing.Point(180, 302);
-            this.EmailTB.Name = "EmailTB";
-            this.EmailTB.Size = new System.Drawing.Size(208, 27);
-            this.EmailTB.TabIndex = 11;
-            // 
-            // OsoiteTB
-            // 
-            this.OsoiteTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OsoiteTB.Location = new System.Drawing.Point(180, 353);
-            this.OsoiteTB.Name = "OsoiteTB";
-            this.OsoiteTB.Size = new System.Drawing.Size(208, 27);
-            this.OsoiteTB.TabIndex = 12;
-            // 
-            // PnumTB
-            // 
-            this.PnumTB.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PnumTB.Location = new System.Drawing.Point(180, 403);
-            this.PnumTB.Name = "PnumTB";
-            this.PnumTB.Size = new System.Drawing.Size(208, 27);
-            this.PnumTB.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(55, 148);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 19);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Etunimi:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(55, 199);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 19);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Sukunimi:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(55, 252);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 19);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Puhelin:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(55, 303);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 19);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Sähköposti:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(55, 354);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 19);
-            this.label14.TabIndex = 18;
-            this.label14.Text = "Katuosoite:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(55, 404);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(105, 19);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "Postinumero:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(191, 101);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(178, 23);
-            this.label16.TabIndex = 20;
-            this.label16.Text = "Syötä toimitustiedot";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(667, 101);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(164, 23);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Ostoskorin sisältö";
-            // 
-            // SummatekstiLB
-            // 
-            this.SummatekstiLB.AutoSize = true;
-            this.SummatekstiLB.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SummatekstiLB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SummatekstiLB.Location = new System.Drawing.Point(219, 18);
-            this.SummatekstiLB.Name = "SummatekstiLB";
-            this.SummatekstiLB.Size = new System.Drawing.Size(79, 23);
-            this.SummatekstiLB.TabIndex = 3;
-            this.SummatekstiLB.Text = "Summa:";
-            // 
-            // SummaLB
-            // 
-            this.SummaLB.AutoSize = true;
-            this.SummaLB.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SummaLB.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SummaLB.Location = new System.Drawing.Point(305, 18);
-            this.SummaLB.Name = "SummaLB";
-            this.SummaLB.Size = new System.Drawing.Size(32, 23);
-            this.SummaLB.TabIndex = 4;
-            this.SummaLB.Text = "0€";
             // 
             // Asiakassivu_form
             // 

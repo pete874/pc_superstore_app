@@ -86,6 +86,32 @@ namespace pc_superstore_app
             }
             
         }
+
+        public bool LisaaTilaus(String etunimi, String sukunimi, String puhelin, String sahkoposti, String katuosoite, String postinumero, String tuotteet)
+        {
+            MySqlCommand tilauslisays = new MySqlCommand("INSERT INTO tilaukset (etunimi, sukunimi, puhelin, sähköposti, katuosoite, postinumero, tilaus) VALUES (@enm, @snm, @puh, @ema, @oso, @pnu, @tuo)", yhteys.otaYhteys());
+            
+            tilauslisays.Parameters.AddWithValue("@enm", etunimi);
+            tilauslisays.Parameters.AddWithValue("@snm", sukunimi);
+            tilauslisays.Parameters.AddWithValue("@puh", puhelin);
+            tilauslisays.Parameters.AddWithValue("@ema", sahkoposti);
+            tilauslisays.Parameters.AddWithValue("@oso", katuosoite);
+            tilauslisays.Parameters.AddWithValue("@pnu", postinumero);
+            tilauslisays.Parameters.AddWithValue("@tuo", tuotteet);
+
+            yhteys.avaaYhteys();
+
+            if (tilauslisays.ExecuteNonQuery() == 1)
+            {
+                yhteys.suljeYhteys();
+                return true;
+            }
+            else
+            {
+                yhteys.suljeYhteys();
+                return false;
+            }
+        }
     
     }
 }
