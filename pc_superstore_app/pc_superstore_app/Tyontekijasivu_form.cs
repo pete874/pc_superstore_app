@@ -20,6 +20,7 @@ namespace pc_superstore_app
             InitializeComponent();
         }
 
+        //tapahtuu formin loadissa
         private void Tyontekijasivu_form_Load(object sender, EventArgs e)
         {
             AsiakkaatDG.DataSource = tyontekija.HaeTyontekijaAsiakkaat();
@@ -395,6 +396,7 @@ namespace pc_superstore_app
             TilauksetDG.DataSource = view;
         }
 
+        //näyttää työntekijät pelkästään datagridissä
         private void NaytaTyontekijatBT_Click(object sender, EventArgs e)
         {
             DataTable tyontekijat = (DataTable)tyontekija.HaeTyontekijaAsiakkaat();
@@ -406,6 +408,7 @@ namespace pc_superstore_app
             AsiakkaatDG.DataSource = tyontekijat2;
         }
 
+        //näyttää asiakkaat datagridissä
         private void NaytaAsiakkaatBT_Click(object sender, EventArgs e)
         {
             DataTable asiakkaat = (DataTable)tyontekija.HaeTyontekijaAsiakkaat();
@@ -417,6 +420,7 @@ namespace pc_superstore_app
             AsiakkaatDG.DataSource = asiakkaat2;
         }
 
+        //käyttäjien etsintäkenttä
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -434,6 +438,7 @@ namespace pc_superstore_app
             AsiakkaatDG.DataSource = view;
         }
 
+        //kirjautuu ulos takaisin login screeniin
         private void TyontekjiaKirjauduUlosBT_Click(object sender, EventArgs e)
         {
             
