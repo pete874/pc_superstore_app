@@ -193,7 +193,7 @@ namespace pc_superstore_app
                 PaaKategoriaCB.SelectedIndex = 0;
             }
 
-            if (testi == "kuulokkeet" || testi == "näppäimistöt" || testi == "kuulokkeet")
+            if (testi == "kuulokkeet" || testi == "näppäimistöt" || testi == "hiiret")
             {
                 PaaKategoriaCB.SelectedIndex = 1;
             }
