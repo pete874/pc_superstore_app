@@ -14,6 +14,8 @@ namespace pc_superstore_app
 {
     public partial class Asiakassivu_form : Form
     {
+        // luodaan heti alkuun uudet esiintymät yhdistä, tuotteet ja asiakas- classeista
+
         YHDISTA yhteys = new YHDISTA();
         TUOTTEET tuotteet = new TUOTTEET();
         ASIAKAS asiakas = new ASIAKAS();
@@ -22,6 +24,8 @@ namespace pc_superstore_app
             InitializeComponent();
         }
 
+        // Form-loadissa määritellään, mikä paneeli näytetään ja mitkä paneelit pidetään piilotettuina
+        // Lisätään Ostoskori datagridiin kaksi saraketta: tuote ja hinta
         private void Asiakassivu_form_Load(object sender, EventArgs e)
         {
             EtusivuAsiakasPN.Visible = true;
@@ -55,7 +59,8 @@ namespace pc_superstore_app
             SummaLB.Visible = false;
         }
 
-
+        // Tietokoneet- välilehden avautuessa haetaan kyseiseen datagridiin tietokannasta myynnissä olevat tietokoneet
+        // tuotetiedot piilotetaan 
         private void TietokoneetBT_Click(object sender, EventArgs e)
         {
             EtusivuAsiakasPN.Visible = false;
@@ -70,6 +75,7 @@ namespace pc_superstore_app
             TietokoneetDG.Columns["tuotetiedot"].Visible = false;
         }
 
+        // Samat toimenpiteet tehdään myös klikattaessa komponentit- ja oheistuotteet-välilehtiä
         private void KomponentitBT_Click(object sender, EventArgs e)
         {
             EtusivuAsiakasPN.Visible = false;
@@ -98,6 +104,7 @@ namespace pc_superstore_app
             OheistuotteetDG.Columns["tuotetiedot"].Visible = false;
         }
 
+        // Itse tuotetta klikattaessa haetaan rich text boxiin tuotteen tiedot
         private void TietokoneetDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TietokoneetRTB.Text = TietokoneetDG.CurrentRow.Cells[4].Value.ToString();
@@ -113,13 +120,12 @@ namespace pc_superstore_app
             OheistuotteetRTB.Text = OheistuotteetDG.CurrentRow.Cells[4].Value.ToString();
         }
 
-
-        // Tuotteiden lisäykset
         // Luodaan muuttuja loppusummalle
+        // Tuotteiden lisäykset
         public int loppusumma = 0;
         public int kappalemaara = 0;
        
-        // Tietokonepakettien lisäys. Haetaan Ostoskorin datagridiin vain tuotteen nimi ja hinta
+        // Tietokonepakettien lisäys ostoskoriin. Haetaan Ostoskorin datagridiin vain tuotteen nimi ja hinta. Lopuksi tehdään ostoskorin yhteishinnan ja kappalemäärän lisäys, joka näkyy footerissa.
         private void LisaaTietokoneetBT_Click(object sender, EventArgs e)
         {
 
@@ -176,6 +182,7 @@ namespace pc_superstore_app
             kappalemaara++;
         }
 
+        // -- Ostoskorin toiminnot --
         private void OstoskoriBT_Click(object sender, EventArgs e)
         {
             EtusivuAsiakasPN.Visible = false;
@@ -188,6 +195,12 @@ namespace pc_superstore_app
         }
 
         // Asiakas voi poistaa tuotteen klikkaamalla haluttua riviä ja painamalla poista-nappia
+        // Luodaan poistettavalle hinnalle muuttuja
+        // Jos valittuja rivejä on enemmän kuin 0, loopataan rivit läpi
+        // Tässä joutuu jostain syystä luomaan ensin string-muuttujan tuotehinnalle, jonka jälkeen se konvertoidaan int-muuttujaan.
+        // Poistetaan valittu rivi datagridistä
+        // vähennetään kappalemäärästä 1 ja loppusummasta poistettava hinta
+
         private void PoistaTuoteBT_Click(object sender, EventArgs e)
         {
             int poistahinta = 0;
@@ -222,6 +235,10 @@ namespace pc_superstore_app
             
         }
 
+        // Tilauksen lähetyksessä luodaan muuttujat textboxeille, sekä erillinen muuttuja tuotteille
+        // Loopataan datagridin rivit ja lisätään tuotteen nimi tuotteet-muuttujaan
+        // Tehdään tekstikenttätarkistus(ei tyhjiä kenttiä)
+        // Jos kentät täytetty oikein, kutsutaan LisaaTilaus metodia ASIAKAS-classista 
         private void LahetaTilausBT_Click(object sender, EventArgs e)
         {
             String etunimi = EtunimiTB.Text;

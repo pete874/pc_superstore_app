@@ -9,11 +9,13 @@ using System.Windows.Forms;
 
 namespace pc_superstore_app
 {
+    // Luodaan uusi classi asiakkaiden hallintaa varten
     class ASIAKAS
     {
+        // Tehdään uusi esiintymä yhdistä-classista
         YHDISTA yhteys = new YHDISTA();
 
-
+        // Tällä metodilla haetaan tallennetut henkilöt tietokannasta
         public DataTable HaeAsiakkaat()
         {
             MySqlCommand haeKaikki = new MySqlCommand("SELECT kayttajatunnus, salasana, oikeudet FROM kayttajat", yhteys.otaYhteys());
@@ -31,6 +33,11 @@ namespace pc_superstore_app
 
         }
 
+        // Tällä metodilla lisätään uusi asiakas rekisteröitymis- formissa
+        // Lisätään metodiin tarvittavat muuttujat (kirjautumistunnukset, email)
+        // Luodaan Sql-komento INSERT INTO johon lisätään @-parametrit
+        // avataan yhteys
+        // suljetaan yhteys
         public bool LisaaAsiakas(String kayttajatunnus, String salasana, String email)
         {
 
@@ -54,6 +61,11 @@ namespace pc_superstore_app
             }
         }
 
+        // Tätä metodia kutsutaan henkilön kirjautuessa palveluun        
+        // Lisätään metodiin tarvittavat muuttujat (tunnus, salasana)
+        // Luodaan Sql-komento SELECT johon lisätään @-parametrit
+        // avataan yhteys
+        // suljetaan yhteys
         public int KirjautumisenTarkastus(String kayttajatunnus, String salasana)
         {
             MySqlCommand kayttajakomento = new MySqlCommand("SELECT oikeudet FROM kayttajat WHERE kayttajatunnus = @ktu AND salasana = @sal", yhteys.otaYhteys());
@@ -87,6 +99,11 @@ namespace pc_superstore_app
             
         }
 
+        // Seuraavaa metodia kutsutaan tilauksen lähettämisen yhteydessä
+        // Lisätään metodiin tarvittavat muuttujat (henkilötiedot, tilattavat tuotteet)
+        // Luodaan Sql-komento johon lisätään @-parametrit
+        // avataan yhteys
+        // suljetaan yhteys
         public bool LisaaTilaus(String etunimi, String sukunimi, String puhelin, String sahkoposti, String katuosoite, String postinumero, String tuotteet)
         {
             MySqlCommand tilauslisays = new MySqlCommand("INSERT INTO tilaukset (etunimi, sukunimi, puhelin, sähköposti, katuosoite, postinumero, tilaus) VALUES (@enm, @snm, @puh, @ema, @oso, @pnu, @tuo)", yhteys.otaYhteys());
