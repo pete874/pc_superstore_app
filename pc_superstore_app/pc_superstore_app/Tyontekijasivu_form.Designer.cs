@@ -29,11 +29,16 @@
         private void InitializeComponent()
         {
             this.TyontekijaEtusivuPN = new System.Windows.Forms.Panel();
+            this.TyontekjiaKirjauduUlosBT = new System.Windows.Forms.Button();
             this.VarastoBT = new System.Windows.Forms.Button();
             this.TilauksetBT = new System.Windows.Forms.Button();
             this.AsiakkaatBT = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.AsiakkaatPN = new System.Windows.Forms.Panel();
+            this.KayttajatEtsiTB = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.NaytaAsiakkaatBT = new System.Windows.Forms.Button();
+            this.NaytaTyontekijatBT = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.PoistaKayttajaBT = new System.Windows.Forms.Button();
             this.MuokkaaKayttajaBT = new System.Windows.Forms.Button();
@@ -92,11 +97,7 @@
             this.VarastoDG = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.AlaPN = new System.Windows.Forms.Panel();
-            this.NaytaTyontekijatBT = new System.Windows.Forms.Button();
-            this.NaytaAsiakkaatBT = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.KayttajatEtsiTB = new System.Windows.Forms.TextBox();
-            this.TyontekjiaKirjauduUlosBT = new System.Windows.Forms.Button();
+            this.TyhjennaBT = new System.Windows.Forms.Button();
             this.TyontekijaEtusivuPN.SuspendLayout();
             this.AsiakkaatPN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AsiakkaatDG)).BeginInit();
@@ -119,6 +120,16 @@
             this.TyontekijaEtusivuPN.Name = "TyontekijaEtusivuPN";
             this.TyontekijaEtusivuPN.Size = new System.Drawing.Size(1133, 100);
             this.TyontekijaEtusivuPN.TabIndex = 0;
+            // 
+            // TyontekjiaKirjauduUlosBT
+            // 
+            this.TyontekjiaKirjauduUlosBT.Location = new System.Drawing.Point(1046, 12);
+            this.TyontekjiaKirjauduUlosBT.Name = "TyontekjiaKirjauduUlosBT";
+            this.TyontekjiaKirjauduUlosBT.Size = new System.Drawing.Size(75, 23);
+            this.TyontekjiaKirjauduUlosBT.TabIndex = 4;
+            this.TyontekjiaKirjauduUlosBT.Text = "Kirjaudu ulos";
+            this.TyontekjiaKirjauduUlosBT.UseVisualStyleBackColor = true;
+            this.TyontekjiaKirjauduUlosBT.Click += new System.EventHandler(this.TyontekjiaKirjauduUlosBT_Click);
             // 
             // VarastoBT
             // 
@@ -188,6 +199,43 @@
             this.AsiakkaatPN.Size = new System.Drawing.Size(1133, 513);
             this.AsiakkaatPN.TabIndex = 3;
             this.AsiakkaatPN.Visible = false;
+            // 
+            // KayttajatEtsiTB
+            // 
+            this.KayttajatEtsiTB.Location = new System.Drawing.Point(170, 71);
+            this.KayttajatEtsiTB.Name = "KayttajatEtsiTB";
+            this.KayttajatEtsiTB.Size = new System.Drawing.Size(172, 20);
+            this.KayttajatEtsiTB.TabIndex = 17;
+            this.KayttajatEtsiTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(139, 73);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(24, 13);
+            this.label24.TabIndex = 16;
+            this.label24.Text = "Etsi";
+            // 
+            // NaytaAsiakkaatBT
+            // 
+            this.NaytaAsiakkaatBT.Location = new System.Drawing.Point(241, 38);
+            this.NaytaAsiakkaatBT.Name = "NaytaAsiakkaatBT";
+            this.NaytaAsiakkaatBT.Size = new System.Drawing.Size(75, 23);
+            this.NaytaAsiakkaatBT.TabIndex = 15;
+            this.NaytaAsiakkaatBT.Text = "Asiakkaat";
+            this.NaytaAsiakkaatBT.UseVisualStyleBackColor = true;
+            this.NaytaAsiakkaatBT.Click += new System.EventHandler(this.NaytaAsiakkaatBT_Click);
+            // 
+            // NaytaTyontekijatBT
+            // 
+            this.NaytaTyontekijatBT.Location = new System.Drawing.Point(160, 37);
+            this.NaytaTyontekijatBT.Name = "NaytaTyontekijatBT";
+            this.NaytaTyontekijatBT.Size = new System.Drawing.Size(75, 23);
+            this.NaytaTyontekijatBT.TabIndex = 14;
+            this.NaytaTyontekijatBT.Text = "Työntekijät";
+            this.NaytaTyontekijatBT.UseVisualStyleBackColor = true;
+            this.NaytaTyontekijatBT.Click += new System.EventHandler(this.NaytaTyontekijatBT_Click);
             // 
             // label9
             // 
@@ -532,6 +580,7 @@
             // 
             // VarastoPN
             // 
+            this.VarastoPN.Controls.Add(this.TyhjennaBT);
             this.VarastoPN.Controls.Add(this.label14);
             this.VarastoPN.Controls.Add(this.PaaKategoriaCB);
             this.VarastoPN.Controls.Add(this.LisaaTuoteBT);
@@ -591,7 +640,7 @@
             // 
             // MuokkaaTuoteBT
             // 
-            this.MuokkaaTuoteBT.Location = new System.Drawing.Point(177, 477);
+            this.MuokkaaTuoteBT.Location = new System.Drawing.Point(123, 476);
             this.MuokkaaTuoteBT.Name = "MuokkaaTuoteBT";
             this.MuokkaaTuoteBT.Size = new System.Drawing.Size(114, 23);
             this.MuokkaaTuoteBT.TabIndex = 18;
@@ -601,7 +650,7 @@
             // 
             // PoistaTuoteBT
             // 
-            this.PoistaTuoteBT.Location = new System.Drawing.Point(343, 477);
+            this.PoistaTuoteBT.Location = new System.Drawing.Point(244, 476);
             this.PoistaTuoteBT.Name = "PoistaTuoteBT";
             this.PoistaTuoteBT.Size = new System.Drawing.Size(114, 23);
             this.PoistaTuoteBT.TabIndex = 17;
@@ -734,60 +783,23 @@
             this.AlaPN.Size = new System.Drawing.Size(1133, 65);
             this.AlaPN.TabIndex = 4;
             // 
-            // NaytaTyontekijatBT
+            // TyhjennaBT
             // 
-            this.NaytaTyontekijatBT.Location = new System.Drawing.Point(160, 37);
-            this.NaytaTyontekijatBT.Name = "NaytaTyontekijatBT";
-            this.NaytaTyontekijatBT.Size = new System.Drawing.Size(75, 23);
-            this.NaytaTyontekijatBT.TabIndex = 14;
-            this.NaytaTyontekijatBT.Text = "Työntekijät";
-            this.NaytaTyontekijatBT.UseVisualStyleBackColor = true;
-            this.NaytaTyontekijatBT.Click += new System.EventHandler(this.NaytaTyontekijatBT_Click);
-            // 
-            // NaytaAsiakkaatBT
-            // 
-            this.NaytaAsiakkaatBT.Location = new System.Drawing.Point(241, 38);
-            this.NaytaAsiakkaatBT.Name = "NaytaAsiakkaatBT";
-            this.NaytaAsiakkaatBT.Size = new System.Drawing.Size(75, 23);
-            this.NaytaAsiakkaatBT.TabIndex = 15;
-            this.NaytaAsiakkaatBT.Text = "Asiakkaat";
-            this.NaytaAsiakkaatBT.UseVisualStyleBackColor = true;
-            this.NaytaAsiakkaatBT.Click += new System.EventHandler(this.NaytaAsiakkaatBT_Click);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(139, 73);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(24, 13);
-            this.label24.TabIndex = 16;
-            this.label24.Text = "Etsi";
-            // 
-            // KayttajatEtsiTB
-            // 
-            this.KayttajatEtsiTB.Location = new System.Drawing.Point(170, 71);
-            this.KayttajatEtsiTB.Name = "KayttajatEtsiTB";
-            this.KayttajatEtsiTB.Size = new System.Drawing.Size(172, 20);
-            this.KayttajatEtsiTB.TabIndex = 17;
-            this.KayttajatEtsiTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // TyontekjiaKirjauduUlosBT
-            // 
-            this.TyontekjiaKirjauduUlosBT.Location = new System.Drawing.Point(1046, 12);
-            this.TyontekjiaKirjauduUlosBT.Name = "TyontekjiaKirjauduUlosBT";
-            this.TyontekjiaKirjauduUlosBT.Size = new System.Drawing.Size(75, 23);
-            this.TyontekjiaKirjauduUlosBT.TabIndex = 4;
-            this.TyontekjiaKirjauduUlosBT.Text = "Kirjaudu ulos";
-            this.TyontekjiaKirjauduUlosBT.UseVisualStyleBackColor = true;
-            this.TyontekjiaKirjauduUlosBT.Click += new System.EventHandler(this.TyontekjiaKirjauduUlosBT_Click);
+            this.TyhjennaBT.Location = new System.Drawing.Point(368, 476);
+            this.TyhjennaBT.Name = "TyhjennaBT";
+            this.TyhjennaBT.Size = new System.Drawing.Size(75, 23);
+            this.TyhjennaBT.TabIndex = 22;
+            this.TyhjennaBT.Text = "Tyhjennä";
+            this.TyhjennaBT.UseVisualStyleBackColor = true;
+            this.TyhjennaBT.Click += new System.EventHandler(this.TyhjennaBT_Click);
             // 
             // Tyontekijasivu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 678);
-            this.Controls.Add(this.AsiakkaatPN);
             this.Controls.Add(this.VarastoPN);
+            this.Controls.Add(this.AsiakkaatPN);
             this.Controls.Add(this.TilauksetPN);
             this.Controls.Add(this.TyontekijaEtusivuPN);
             this.Controls.Add(this.AlaPN);
@@ -881,5 +893,6 @@
         private System.Windows.Forms.TextBox KayttajatEtsiTB;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button TyontekjiaKirjauduUlosBT;
+        private System.Windows.Forms.Button TyhjennaBT;
     }
 }

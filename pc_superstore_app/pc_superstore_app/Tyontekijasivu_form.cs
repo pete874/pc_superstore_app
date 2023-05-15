@@ -448,5 +448,14 @@ namespace pc_superstore_app
 
             this.Hide();
         }
+
+        private void TyhjennaBT_Click(object sender, EventArgs e)
+        {
+            TuotekategoriaTB.Text = "";
+            TuoteTB.Text = "";
+            VarastosaldoTB.Text = "";
+            HintaTB.Text = "";
+            TuotetiedotRTB.Text = "";
+        }
     }
 }
