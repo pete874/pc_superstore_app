@@ -241,6 +241,11 @@ namespace pc_superstore_app
             }
 
             VarastoDG.DataSource = tyontekija.HaeVarasto();
+            TuotekategoriaTB.Text = "";
+            TuoteTB.Text = "";
+            VarastosaldoTB.Text = "";
+            HintaTB.Text = "";
+            TuotetiedotRTB.Text = "";
         }
 
         //Muokkaa tuotetta
