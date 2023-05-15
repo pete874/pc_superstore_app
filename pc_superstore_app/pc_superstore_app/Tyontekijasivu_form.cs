@@ -293,7 +293,7 @@ namespace pc_superstore_app
                 }
                 else
                 {
-                    MessageBox.Show("Tuotteen poistaminen epäonnistui!", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tuotteen poistaminen epäonnistui! Tarkista tuotteen nimi, tai että tuotteen oikea pääkategoria on valittuna", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 VarastoDG.DataSource = tyontekija.HaeVarasto();
             }
@@ -302,6 +302,11 @@ namespace pc_superstore_app
             {
                 MessageBox.Show("Syötä poistettavan tuotteen nimi", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            TuotekategoriaTB.Text = "";
+            TuoteTB.Text = "";
+            VarastosaldoTB.Text = "";
+            HintaTB.Text = "";
+            TuotetiedotRTB.Text = "";
         }
 
         //tilauksen tiedot tekstikenttiin klikkaamalla celliä
